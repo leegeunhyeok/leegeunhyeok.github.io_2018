@@ -1,16 +1,30 @@
 <template>
   <div id="window">
     <title-bar @onClose="$emit('onClose')" :title="data.title"></title-bar>
+    <div class="content-area">
+      <transition name="fade" mode="out-in">
+        <folder-view v-if="type === 0"></folder-view>
+        <browser-view v-else-if="type === 1"></browser-view>
+        <information-view v-else></information-view>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
 import Title from './TitleBar.vue';
 
+import Folder from './Folder.vue';
+import Browser from './Browser.vue';
+import Information from './Information.vue';
+
 export default {
-  props: ['data'],
+  props: ['data', 'type'], // type: 0(폴더), 1(브라우저), 2(정보)
   components: {
-    'title-bar': Title
+    'title-bar': Title,
+    'folder-view': Folder,
+    'browser-view': Browser,
+    'information-view': Information
   }
 }
 </script>
@@ -36,5 +50,14 @@ export default {
     height: 96%;
     top: 2%;
   }
+}
+
+.content-area {
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
 }
 </style>

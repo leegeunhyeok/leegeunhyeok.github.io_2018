@@ -4,7 +4,7 @@
       <intro-view v-if="view === 0" @onPower="view = 1"></intro-view>
       <boot-view v-else-if="view === 1" @bootEnd="view = 2"></boot-view>
       <login-view v-else-if="view === 2" @onLogin="view = 3"></login-view>
-      <main-view v-else></main-view>
+      <main-view v-else @onPoweroff="view = 0"></main-view>
     </transition>
   </div>
 </template>

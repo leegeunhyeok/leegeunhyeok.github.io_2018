@@ -7,7 +7,7 @@
         </shortcut-icon>
       </div>
       <transition name="fade" mode="in-out">
-        <window-view @onClose="onClose" v-if="window" :data="data"></window-view>
+        <window-view @onClose="onClose" v-if="window" :data="data" :type="type"></window-view>
       </transition>
     </div>
     <div id="taskbar">
@@ -16,7 +16,7 @@
     </div>
     <transition name="fade" mode="in-out">
       <div id="menu" v-if="showMenu">
-        <img src="../assets/poweroff.png">
+        <img src="../assets/poweroff.png" @click="$emit('onPoweroff')">
         <br>
         <b>Power Off</b>
       </div>
@@ -38,6 +38,7 @@ export default {
       showMenu: false,
       window: false,
       data: {},
+      type: 0,
       format: Format,
       time: Format.getSimple(),
       project: Project,
@@ -69,6 +70,13 @@ export default {
       }
     },
     showWindow(n) {
+      if(n === 0 || n === 1 || n === 2) {
+        this.type = 0;
+      } else if(n === 4) {
+        this.type = 1;
+      } else {
+        this.type = 2;
+      }
       var content = null;
       this.data = {'title':this.shortcut[n].name, 'content':content};
       this.window = true;
