@@ -36,6 +36,7 @@ export default {
   height: 100%;
   text-align: center;
   overflow-y: auto;
+  background-color: #eee;
 }
 
 #information img {

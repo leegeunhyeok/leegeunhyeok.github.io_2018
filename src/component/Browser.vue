@@ -1,44 +1,29 @@
 <template>
   <div id="browser">
     <div class="browser-top">
-      <button @click="browserRefresh">
+      <button>
         <img src="../assets/refresh.png">
       </button>
-      <input type="text" v-model="url" @keypress="changeUrl">
+      <input type="text" value="https://google.com" disabled>
     </div>
-    <iframe src="/" frameborder=0 id="iframe"></iframe>
+    <div class="google">
+      <img src="../assets/google.png">
+      <br>
+      <input type="text" v-model="keyword" @keypress="onKeypress">
+    </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
     return {
-      iframe: null,
-      url: 'https://google.com/'
+      keyword: ''
     }
   },
-  mounted() {
-    this.iframe = document.getElementById('iframe');
-    this.iframe.src = this.url;
-  },
   methods: {
-    browserRefresh() {
-      this.iframe.contentDocument.location.reload(true);
-    },
-    changeUrl(event) {
-      if(event.charCode === 13) {
-        this.httpCheck();
-        this.iframe.src = this.url;
-      }
-    },
-    httpCheck() {
-      const url = this.url;
-      const $http = 'http://';
-      const $https = 'https://';
-
-      if(url.indexOf($http) === -1 || url.indexOf($https) === -1) {
-        this.url = 'http://' + this.url;
+    onKeypress(e) {
+      if(e.charCode === 13 && this.keyword.length) { // 엔터키 + 빈칸이 아닐경우 구글검색창 띄우기 
+        window.open('https://google.com/search?q=' + this.keyword);
       }
     }
   }
@@ -50,11 +35,6 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-#browser iframe {
-  width: 100%;
-  height: 94%;
 }
 
 .browser-top {
@@ -81,8 +61,34 @@ export default {
   margin-top: 2px;
 }
 
-.go-btn {
-  float: right;
+.google {
+  width: 100%;
+  height: 94%;
+  background-color: #fff;
+  text-align: center;
+}
 
+.google img {
+  width: 20rem;
+  height: 10rem;
+  margin: 5rem 0px 3rem 0px;
+}
+
+.google input {
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+  width: 16rem;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+.google input:focus {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.google input:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
 </style>

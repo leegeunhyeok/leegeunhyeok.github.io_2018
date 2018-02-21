@@ -34,14 +34,14 @@ export default {
     this.refreshTime();
   },
   methods: {
-    refreshTime() {
+    refreshTime() { // 시간과 날짜 1초마다 갱신
       setInterval(() => {
         this.time = this.format.getTime();
         this.date = this.format.getDate();
         this.ap = this.format.getAp();
       }, 1000);
     },
-    onLogin() {
+    onLogin() { // 2.5초 후 부모에게 onLogin 이벤트 emit 
       this.login = true;
       setTimeout(() => {
         this.$emit('onLogin');
@@ -52,11 +52,6 @@ export default {
 </script>
 
 <style>
-body {
-  background: url('../assets/background.png') center;
-  background-size: cover;
-}
-
 #cover {
   width: 100%;
   height: 100%;

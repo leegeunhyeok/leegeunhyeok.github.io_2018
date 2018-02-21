@@ -8,6 +8,7 @@
 </template>
 
 <script>
+// 단축 아이콘 
 
 export default {
   props: ['path']

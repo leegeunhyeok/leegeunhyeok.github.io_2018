@@ -55,10 +55,10 @@ export default {
           if(this.messages.length-1 === index) {
             this.printEnd();
           }
-        }, 500 + index*100);
+        }, 500 + index*100); // 100ms 간격으로 글자 출력
       });
     },
-    printEnd() {
+    printEnd() { // 모든 글자가 출력되었으면 2.5초 뒤 부모에게 bootEnd 이벤트 emit
       setTimeout(() => {
         this.$emit('bootEnd');
       }, 2500)

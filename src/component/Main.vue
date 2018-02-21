@@ -35,11 +35,11 @@ import WindowComponent from './Window.vue';
 export default {
   data () {
     return {
-      showMenu: false,
-      window: false,
-      data: {},
-      type: 0,
-      format: Format,
+      showMenu: false, // 시작메뉴 Show
+      window: false, // 단축 아이콘 클릭시 윈도우 띄우기 
+      data: {}, // 폴더에서 보여줄 데이터
+      type: 0, // 단축아이콘 타입(기본 윈도우, 브라우저, 정보)
+      format: Format, // 시간포맷 변환객체 
       time: Format.getSimple(),
       project: Project,
       shortcut: Shortcut
@@ -50,41 +50,38 @@ export default {
     'window-view': WindowComponent
   },
   created() {
-    this.refreshTime();
+    this.refreshTime(); // 1초에 한번씩 자동 갱신됨
   },
   methods: {
     refreshTime() {
       setInterval(() => {
-        this.time = this.format.getSimple();
+        this.time = this.format.getSimple(); // 1초마다 시간 불러오기 
       }, 1000);
     },
-    shortcutClick(n) {
-      if(n === 0 || n === 1 || n === 2 || n === 4 || n === 7) {
-        this.showWindow(n);
-      } else if(n === 3) {
-        this.showTerminal();
+    shortcutClick(n) { // 단축아이콘 클릭 (0~7)
+      if(n !== 5 || n !== 6) {
+        this.showWindow(n); // 5, 6이 아니면 윈도우 띄우기 
       } else if(n === 5) {
-        window.open('https://github.com/leegeunhyeok');
+        window.open('https://github.com/leegeunhyeok'); // 깃허브 새창으로 열기 
       } else {
-        window.open('mailto:lghlove0509@naver.com');
+        window.open('mailto:lghlove0509@naver.com'); // 메일 프로그램 연결 
       }
     },
     showWindow(n) {
-      if(n === 0 || n === 1 || n === 2) {
+      if(n === 0 || n === 1 || n === 2) { // 폴더 
         this.type = 0;
-      } else if(n === 4) {
+      } else if(n === 3) { // 터미널 
         this.type = 1;
-      } else {
+      } else if(n === 4) { // 브라우저 
         this.type = 2;
+      } else { // 정보 
+        this.type = 3;
       }
       var content = null;
       this.data = {'title':this.shortcut[n].name, 'content':content};
       this.window = true;
     },
-    showTerminal(n) {
-      
-    },
-    onClose() {
+    onClose() { // 윈도우 닫기
       this.window = false;
     }
   }
