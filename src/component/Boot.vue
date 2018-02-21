@@ -5,7 +5,7 @@
       <div class="console-text">Leegeunhyeok's Portfolio [Dev-start 2018/02/20]</div>
       <div class="console-text">Copyright 2018 Leegeunhyeok.</div>
       <div class="console-text">All Rights Reserved</div>
-      <div class="console-text">Last build: <b>2018/02/21</b></div>
+      <div class="console-text">Last build: <b>2018/02/22</b></div>
       <br>
     </div>
   </div>

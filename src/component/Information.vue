@@ -10,7 +10,7 @@
       <br>
       Development start date: 2018/02/20
       <br>
-      Recently build date: 2018/02/21
+      Last build date: 2018/02/22
       <br>
       <br>
       Source code: <a href="https://github.com/leegeunhyeok/leegeunhyeok.github.com">Github</a>
