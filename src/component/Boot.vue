@@ -15,7 +15,7 @@
 
 // 콘솔에 출력할 메시지(공백: br 태그)
 const $messages = [
-  'Server is running on Raspberry Pi 3 (Linux - Raspbian)',
+  'Link - https://leegeunhyeok.github.io/',
   'Github - leegeunhyeok',
   'Email - lghlove0509@naver.com',
   'More information -> After booting',
@@ -69,6 +69,7 @@ export default {
 
 <style>
 #boot {
+  font-family: "consolas";
   width: 100%;
   height: 100%;
   background-color: #000;

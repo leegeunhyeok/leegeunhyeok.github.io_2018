@@ -14,7 +14,7 @@ const $getTime = (date) => {
   return `${hour}:${min}:${sec}`;
 }
 
-// ddd, MMM dd
+// ddd, dd MMM
 const $getDate = (date) => {
   const $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const $week = ['Sun', 'Mon', 'Thu', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -23,7 +23,7 @@ const $getDate = (date) => {
   var dow = $week[$date.getDay()];
   var month = $month[$date.getMonth()];
   var day = $date.getDate();
-  return `${dow}, ${month} ${day}`;
+  return `${dow}, ${day} ${month}`;
 }
 
 // AM, PM

@@ -1,12 +1,32 @@
 <template>
   <div id="main">
     <div id="desktop">
-      <shortcut :path="'../assets/logo.png'">
-        <div slot="shortcut-name">AA</div>
-      </shortcut>
-      <shortcut :path="'../assets/logo.png'">
-        <div slot="shortcut-name">AA</div>
-      </shortcut>
+      <div id="shortcut-area">
+        <shortcut :path="'dist/folder.png'">
+          <div slot="shortcut-name">Projects</div>
+        </shortcut>
+        <shortcut :path="'dist/folder.png'">
+          <div slot="shortcut-name">About me</div>
+        </shortcut>
+        <shortcut :path="'dist/folder.png'">
+          <div slot="shortcut-name">Education</div>
+        </shortcut>
+        <shortcut :path="'dist/terminal.png'">
+          <div slot="shortcut-name">Terminal</div>
+        </shortcut>
+        <shortcut :path="'dist/browser.png'">
+          <div slot="shortcut-name">Browser</div>
+        </shortcut>
+        <shortcut :path="'dist/github.png'">
+          <div slot="shortcut-name">Github</div>
+        </shortcut>    
+        <shortcut :path="'dist/email.png'">
+          <div slot="shortcut-name">Email</div>
+        </shortcut>
+        <shortcut :path="'dist/info.png'">
+          <div slot="shortcut-name">Information</div>
+        </shortcut>    
+      </div>
     </div>
     <div id="taskbar">
       <button><img class="start" src="../assets/start.png"></button>
@@ -24,8 +44,10 @@ import Shortcut from './Shortcut.vue';
 export default {
   data () {
     return {
+      process: [],
       format: Format,
-      time: Format.getSimple()
+      time: Format.getSimple(),
+      projects: Project
     }
   },
   components: {
@@ -46,9 +68,11 @@ export default {
 
 <style>
 #main {
-  width: 100%;
-  height: 100%;
-  position: relative;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 #taskbar {
@@ -70,6 +94,7 @@ export default {
   font-weight: bold;
   font-size: 1rem;
   background-color: rgba(0, 0, 0, 0);
+  transition: 0.5s;
 }
 
 #taskbar button:hover {
@@ -77,10 +102,31 @@ export default {
 }
 
 #desktop {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 50px;
+  overflow-y: auto;
+}
+
+#shortcut-area {
   margin: auto;
+  margin-top: 16rem;
+  max-width: 32rem;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  #shortcut-area {
+    margin-top: 12%;
+  }
 }
 
 #time {

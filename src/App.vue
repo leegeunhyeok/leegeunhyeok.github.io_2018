@@ -35,11 +35,27 @@ export default {
 </script>
 
 <style>
-body, html, #app {
+@font-face {
+    font-family: "NanumSquareRound";
+    src:url('/fonts/NanumSquareRoundR.eot');
+    src:url('/fonts/NanumSquareRoundR.eot#iefix') format('embedded-opentype'),
+    url('/fonts/NanumSquareRoundR.woff') format('woff'),
+    url('/fonts/NanumSquareRoundR.ttf') format('truetype');
+    src:local(¡Ø), url('/fonts/NanumSquareRoundR.woff') format('woff');
+}
+
+html, #app {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+body {
+  font-family: "NanumSquareRound";
 }
 
 /* 텍스트 선택방지 */

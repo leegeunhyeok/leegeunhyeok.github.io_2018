@@ -1,7 +1,7 @@
 <template>
   <div id="cover">
     <div class="user-area">
-      <img src="../assets/logo.png" class="user-image">
+      <img src="../assets/start.png" class="user-image">
       <p class="user-name">Leegeunhyeok</p>
     </div>
     <div class="button-area">
@@ -53,7 +53,7 @@ export default {
 
 <style>
 body {
-  background: url('../assets/background.jpg') center;
+  background: url('../assets/background.png') center;
   background-size: cover;
 }
 

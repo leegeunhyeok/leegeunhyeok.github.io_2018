@@ -21,9 +21,10 @@ export default {
 
 <style>
 .shortcut {
-  width: 7rem;
-  height: 7rem;
-  padding: 10px;
+  cursor: pointer;
+  width: 6rem;
+  height: 6rem;
+  padding: 1rem;
   border-radius: 5px;
   text-align: center;
   transition: 0.5s;
