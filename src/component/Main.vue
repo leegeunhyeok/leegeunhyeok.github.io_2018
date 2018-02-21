@@ -59,7 +59,7 @@ export default {
       }, 1000);
     },
     shortcutClick(n) { // 단축아이콘 클릭 (0~7)
-      if(n !== 5 || n !== 6) {
+      if(n !== 5 && n !== 6) {
         this.showWindow(n); // 5, 6이 아니면 윈도우 띄우기 
       } else if(n === 5) {
         window.open('https://github.com/leegeunhyeok'); // 깃허브 새창으로 열기 
