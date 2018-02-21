@@ -1,9 +1,11 @@
 <template>
-  <div id="terminal">
-    <div class="commend">
-      <b class="terminal-user">leegeunhyeok@lgh-com</b>
-      :~$ 
-      <input type="text" v-model="commend" @keypress="onKeypress">
+  <div id="terminal-background">
+    <div id="terminal">
+      <div class="commend">
+        <b class="terminal-user">leegeunhyeok@lgh-com</b>
+        :~$ 
+        <input type="text" v-model="commend" @keypress="onKeypress" id="terminal-input">
+      </div>
     </div>
   </div>
 </template>
@@ -18,10 +20,11 @@ export default {
   },
   mounted() {
     this.terminal = document.getElementById('terminal');
+    document.getElementById('terminal-input').focus();
   },
   methods: {
     onKeypress(e) {
-      if(e.charCode === 13) {
+      if(e.charCode === 13 && this.commend.length) {
         this.commendExecute();
       }
     },
@@ -52,18 +55,26 @@ export default {
         }
       }
       this.terminal.insertBefore(result, this.terminal.lastChild); // 마지막 노드 앞에 결과 추가 (입력하는 영역이 항상 아래에 위치함)
-
-      // TODO: Y 영역을 초과하면 스크롤바 + 아래로 스크롤
+      this.autoScroll();
+      document.getElementById('terminal-input').focus();
+    },
+    autoScroll() { // 자동 스크롤 
+      var terminal = document.getElementById('terminal-background');
+      terminal.scrollTop = terminal.scrollHeight;
     }
   }
 }
 </script>
 
 <style>
-#terminal {
+#terminal-background {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+}
+
+#terminal {
   color: #fff;
 }
 
