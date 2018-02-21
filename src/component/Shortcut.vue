@@ -1,5 +1,5 @@
 <template>
-  <div class="shortcut">
+  <div class="shortcut" @click="$emit('onClick')">
     <img :src="path">
     <div class="shortcut-name">
       <slot name="shortcut-name"></slot>
@@ -10,12 +10,7 @@
 <script>
 
 export default {
-  props: ['path'],
-  data () {
-    return {
-      
-    }
-  }
+  props: ['path']
 }
 </script>
 

@@ -1,11 +1,11 @@
 <template>
   <div id="boot">
     <div id="console">
-      <img src="../assets/start.png">
+      <img class="boot-image" src="../assets/start.png">
       <div class="console-text">Leegeunhyeok's Portfolio [Dev-start 2018/02/20]</div>
       <div class="console-text">Copyright 2018 Leegeunhyeok.</div>
       <div class="console-text">All Rights Reserved</div>
-      <div class="console-text">Last build: <b>2018/02/20</b></div>
+      <div class="console-text">Last build: <b>2018/02/21</b></div>
       <br>
     </div>
   </div>
@@ -82,5 +82,19 @@ export default {
 .console-text {
   color: #fff;
   font-size: 0.9rem;
+}
+
+.boot-image {
+  animation: turn 2s infinite;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate(0.0deg);
+  }
+
+  100% {
+    transform: rotate(360.0deg);
+  }
 }
 </style>

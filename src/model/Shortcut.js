@@ -1,0 +1,34 @@
+export default [
+  {
+    'name':'Projects',
+    'image':'dist/folder.png'
+  },
+  {
+    'name':'About me',
+    'image':'dist/folder.png'
+  },
+  {
+    'name':'Education',
+    'image':'dist/folder.png'
+  },
+  {
+    'name':'Terminal',
+    'image':'dist/terminal.png'
+  },
+  {
+    'name':'Browser',
+    'image':'dist/browser.png'
+  },
+  {
+    'name':'Github',
+    'image':'dist/github.png'
+  },
+  {
+    'name':'Email',
+    'image':'dist/email.png'
+  },
+  {
+    'name':'Information',
+    'image':'dist/info.png'
+  }
+]

@@ -73,6 +73,6 @@ export default {
 
 .power-btn-area img:hover {
   transform: scale(1.2); 
-  box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.5);
+  box-shadow: 0px 0px 20px rgba(128, 128, 128, 1);
 }
 </style>

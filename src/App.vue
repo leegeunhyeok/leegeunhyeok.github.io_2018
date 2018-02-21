@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition name="fade" mode="out-in">
+    <transition name="fade" mode="out-in"> 
       <intro-view v-if="view === 0" @onPower="view = 1"></intro-view>
       <boot-view v-else-if="view === 1" @bootEnd="view = 2"></boot-view>
       <login-view v-else-if="view === 2" @onLogin="view = 3"></login-view>
@@ -56,6 +56,8 @@ html, #app {
 
 body {
   font-family: "NanumSquareRound";
+  background: url('./assets/background.png') center;
+  background-size: cover;
 }
 
 /* 텍스트 선택방지 */

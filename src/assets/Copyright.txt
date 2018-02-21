@@ -3,5 +3,6 @@ folder.png / http://www.iconarchive.com/show/yosemite-flat-icons-by-dtafalonso/F
 terminal.png / http://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/terminal-icon.html
 email.png / http://iconshow.me/email-icon-6
 power.png / http://www.iconarchive.com/show/beautiful-flat-one-color-icons-by-elegantthemes/power-icon.html
+poweroff.png / http://www.iconarchive.com/show/beautiful-flat-icons-by-elegantthemes/power-icon.html
 github.png / https://github.com/logos
 info.png / http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/512/process-info-icon.png
