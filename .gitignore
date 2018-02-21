@@ -1,0 +1,11 @@
+﻿.DS_Store
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 에디터 디렉토리, 파일
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
