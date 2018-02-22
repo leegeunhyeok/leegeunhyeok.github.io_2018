@@ -23,6 +23,10 @@ export default {
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 

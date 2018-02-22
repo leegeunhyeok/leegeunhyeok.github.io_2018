@@ -8,8 +8,10 @@
     </div>
     <div class="google">
       <img src="../assets/google.png">
-      <br>
-      <input type="text" v-model="keyword" @keypress="onKeypress">
+      <div class="browser-input-area">
+        <input type="text" class="browser-input" v-model="keyword" @keypress="onKeypress">
+        <input type="submit" class="browser-search" value="Search" @click="onSearch">
+      </div>
     </div>
   </div>
 </template>
@@ -22,8 +24,13 @@ export default {
   },
   methods: {
     onKeypress(e) {
-      if(e.charCode === 13 && this.keyword.length) { // 엔터키 + 빈칸이 아닐경우 구글검색창 띄우기 
-        window.open('https://google.com/search?q=' + this.keyword);
+      if(e.charCode === 13) { // 엔터키
+        this.onSearch();
+      }
+    },
+    onSearch() { // 검색
+      if(this.keyword.length) {
+        window.open('https://google.com/search?q=' + this.keyword); // 구글 검색창 띄우기 
       }
     }
   }
@@ -74,14 +81,25 @@ export default {
   margin: 5rem 0px 3rem 0px;
 }
 
-.google input {
+.browser-input-area {
+  position: relative;
+}
+
+.browser-input {
   border: 1px solid lightgray;
   border-radius: 2px;
   outline: none;
   width: 16rem;
+  height: 1rem;
   padding: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   transition: 0.5s;
+}
+
+.browser-search {
+  border: none;
+  border-radius: 5px;
+  height: 1.8rem;
 }
 
 .google input:focus {

@@ -3,11 +3,11 @@
     <div id="desktop">
       <div id="shortcut-area">
         <shortcut-icon v-for="(item, index) in shortcut" :key="index" :path="item.image" @onClick="shortcutClick(index)">
-          <div slot="shortcut-name">{{item.name}}</div>
+          <div slot="shortcut-name">{{item[lang + '-name']}}</div>
         </shortcut-icon>
       </div>
       <transition name="fade" mode="in-out">
-        <window-view @onClose="onClose" v-if="window" :data="data" :type="type"></window-view>
+        <window-view v-if="window" :data="data" :type="type" :lang="lang" @onClose="onClose" @changeLanguage="$emit('changeLanguage', $event)" @shutdown="$emit('onPoweroff')" @close="window = false"></window-view>
       </transition>
     </div>
     <div id="taskbar">
@@ -18,13 +18,22 @@
       <div id="menu" v-if="showMenu">
         <img src="../assets/poweroff.png" @click="$emit('onPoweroff')">
         <br>
-        <b>Power Off</b>
+        <br>
+        <b>{{powerOff}}</b>
+        <div class="language-btn-area">
+          <div class="menu-language-text">{{changeLang}}</div>
+          <transition name="fade" mode="out-in">
+            <button class="menu-language-btn" @click="$emit('changeLanguage')" v-if="lang === 'en'">Korean</button>
+            <button class="menu-language-btn" @click="$emit('changeLanguage')" v-else>영어</button>
+          </transition>
+        </div>
       </div>
     </transition>
   </div>  
 </template>
 
 <script>
+// 데스크탑 메인 화면 
 import Project from '../model/Project.js';
 import Shortcut from '../model/Shortcut.js';
 import Format from '../date-format.js';
@@ -33,6 +42,7 @@ import ShortcutComponent from './Shortcut.vue';
 import WindowComponent from './Window.vue';
 
 export default {
+  props: ['lang'],
   data () {
     return {
       showMenu: false, // 시작메뉴 Show
@@ -40,7 +50,7 @@ export default {
       data: {}, // 폴더에서 보여줄 데이터
       type: 0, // 단축아이콘 타입(기본 윈도우, 브라우저, 정보)
       format: Format, // 시간포맷 변환객체 
-      time: Format.getSimple(),
+      time: Format.getSimple(null, this.lang),
       project: Project,
       shortcut: Shortcut
     }
@@ -49,13 +59,21 @@ export default {
     'shortcut-icon': ShortcutComponent,
     'window-view': WindowComponent
   },
+  computed: {
+    powerOff() {
+      return this.lang === 'en' ? 'Power Off' : '종료';
+    },
+    changeLang() {
+      return this.lang === 'en' ? 'Change language' : '언어 변경';
+    }
+  },  
   created() {
     this.refreshTime(); // 1초에 한번씩 자동 갱신됨
   },
   methods: {
     refreshTime() {
       setInterval(() => {
-        this.time = this.format.getSimple(); // 1초마다 시간 불러오기 
+        this.time = this.format.getSimple(null, this.lang); // 1초마다 시간 불러오기 
       }, 1000);
     },
     shortcutClick(n) { // 단축아이콘 클릭 (0~7)
@@ -68,8 +86,16 @@ export default {
       }
     },
     showWindow(n) {
-      if(n === 0 || n === 1 || n === 2) { // 폴더 
+      var content = null;
+      if(n === 0) { // 폴더(프로젝트)
         this.type = 0;
+        content = this.project;
+      } else if(n === 1) { //폴더(내 정보)
+        this.type = 0;
+
+      } else if(n === 2) { //폴더(활동)
+        this.type = 0;
+
       } else if(n === 3) { // 터미널 
         this.type = 1;
       } else if(n === 4) { // 브라우저 
@@ -77,8 +103,7 @@ export default {
       } else { // 정보 
         this.type = 3;
       }
-      var content = null;
-      this.data = {'title':this.shortcut[n].name, 'content':content};
+      this.data = {'title':this.shortcut[n][this.lang + '-name'], 'content':content};
       this.window = true;
     },
     onClose() { // 윈도우 닫기
@@ -115,13 +140,16 @@ export default {
   outline: none;
   font-weight: bold;
   font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.2);
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
-  z-index: 9999;
 }
 
 #taskbar button:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #desktop {
@@ -154,11 +182,27 @@ export default {
   text-align: center;
   font-size: 1rem;
   float: right;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .start {
   width: 45px;
   height: 45px;
+  -ms-animation: fade 1s alternate infinite;
+  -moz-animation: fade 1s alternate infinite;
+  -o-animation: fade 1s alternate infinite;
+  -webkit-animation: fade 1s alternate infinite;
+  animation: fade 1s alternate infinite;
+}
+
+@keyframes fade {
+  100% {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
 }
 
 #menu {
@@ -177,10 +221,18 @@ export default {
   cursor: pointer;
   margin-top: 30%;
   border-radius: 50%;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 #menu img:hover {
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
   transform: scale(1.2); 
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
 }
@@ -195,5 +247,33 @@ export default {
     height: 80%;
     width: 100%;
   }
+}
+
+.menu-language-text {
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.menu-language-btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #fff;
+  border-radius: 5px;
+  outline: none;
+  padding: 2px 6px;
+  color: #fff;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.menu-language-btn:hover {
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2); 
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
 }
 </style>

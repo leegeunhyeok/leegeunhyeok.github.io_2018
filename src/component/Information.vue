@@ -2,31 +2,38 @@
   <div id="information">
     <img src="../assets/logo.png" class="scale-image">
     <div class="information-text">
-      Vue. js Base WebPage
+      {{language[lang].info}}
       <br>
       <br>
-      Developer: <b>Leegeunhyeok</b>
+      {{language[lang].developer}}: <b>{{language[lang].user}}</b>
       <br>
       <br>
-      Development start date: 2018/02/20
+      {{language[lang].devstart}}: 2018/02/20
       <br>
-      Last build date: 2018/02/22
-      <br>
-      <br>
-      Source code: <a href="https://github.com/leegeunhyeok/leegeunhyeok.github.com">Github</a>
+      {{language[lang].lastbuild}}: 2018/02/22
       <br>
       <br>
+      {{language[lang].source}}: <a href="https://github.com/leegeunhyeok/leegeunhyeok.github.com">Github</a>
       <br>
-      Visit Develpoer's blog
       <br>
-      <a href="http://blog.naver.com/lghlove0509">Naver</a> / <a href="http://codevkr.tistory.com/">Tistory</a>
+      <br>
+      {{language[lang].blog}}
+      <br>
+      <a href="http://blog.naver.com/lghlove0509">{{language[lang].naver}}</a> / <a href="http://codevkr.tistory.com/">{{language[lang].tistory}}</a>
     </div>
   </div>
 </template>
 
 <script>
+import Language from '../language/InformationLanguage.js';
+
 export default {
-  
+  props: ['lang'],
+  data() {
+    return {
+      language: Language
+    }
+  }
 }
 </script>
 

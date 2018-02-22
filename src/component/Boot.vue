@@ -2,36 +2,19 @@
   <div id="boot">
     <div id="console">
       <img class="boot-image" src="../assets/start.png">
-      <div class="console-text">Leegeunhyeok's Portfolio [Dev-start 2018/02/20]</div>
-      <div class="console-text">Copyright 2018 Leegeunhyeok.</div>
-      <div class="console-text">All Rights Reserved</div>
-      <div class="console-text">Last build: <b>2018/02/22</b></div>
-      <br>
     </div>
   </div>
 </template>
 
 <script>
-
-// 콘솔에 출력할 메시지(공백: br 태그)
-const $messages = [
-  'Link - https://leegeunhyeok.github.io/',
-  'Github - leegeunhyeok',
-  'Email - lghlove0509@naver.com',
-  'More information -> After booting',
-  '',
-  'user: Leegeunhyeok',
-  'password:',
-  '',
-  '',
-  'Pleage wait...'
-];
+import Language from '../language/BootLanguage.js';
 
 export default {
+  props: ['lang'],
   data () {
     return {
       $console: null,
-      messages: $messages
+      messages: Language
     }
   },
   mounted() {
@@ -40,7 +23,7 @@ export default {
   },
   methods: {
     printMessage() {
-      this.messages.forEach((message, index) => {
+      this.messages[this.lang].forEach((message, index) => {
         setTimeout(() => {
           var el;
           if(message) {
@@ -52,7 +35,7 @@ export default {
           }
           this.$console.appendChild(el);
 
-          if(this.messages.length-1 === index) {
+          if(this.messages[this.lang].length-1 === index) {
             this.printEnd();
           }
         }, 500 + index*100); // 100ms 간격으로 글자 출력

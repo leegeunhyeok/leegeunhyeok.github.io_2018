@@ -3,10 +3,10 @@
     <title-bar @onClose="$emit('onClose')" :title="data.title"></title-bar>
     <div class="content-area">
       <transition name="fade" mode="out-in">
-        <folder-view v-if="type === 0" :data="data"></folder-view>
-        <terminal-view v-else-if="type === 1"></terminal-view>
+        <folder-view v-if="type === 0" :data="data" :lang="lang"></folder-view>
+        <terminal-view v-else-if="type === 1" :lang="lang" @changeLanguage="$emit('changeLanguage', $event)" @shutdown="$emit('shutdown')" @close="$emit('close')"></terminal-view>
         <browser-view v-else-if="type === 2"></browser-view>
-        <information-view v-else></information-view>
+        <information-view v-else :lang="lang"></information-view>
       </transition>
     </div>
   </div>
@@ -21,7 +21,7 @@ import Browser from './Browser.vue';
 import Information from './Information.vue';
 
 export default {
-  props: ['data', 'type'], // type: 0(폴더), 1(터미널), 2(브라우저), 3(정보)
+  props: ['data', 'type', 'lang'], // type: 0(폴더), 1(터미널), 2(브라우저), 3(정보)
   components: {
     'title-bar': Title,
     'folder-view': Folder,

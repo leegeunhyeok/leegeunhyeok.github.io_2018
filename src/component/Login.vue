@@ -2,32 +2,35 @@
   <div id="cover">
     <div class="user-area">
       <img src="../assets/start.png" class="user-image">
-      <p class="user-name">Leegeunhyeok</p>
+      <p class="user-name">{{language[lang].user}}</p>
     </div>
     <div class="button-area">
       <transition name="fade" mode="out-in">
-        <button @click="onLogin" v-if="!login">Login</button>
-        <div class="loading-area" v-else>Hello!</div>
+        <button @click="onLogin" v-if="!login">{{language[lang].login}}</button>
+        <div class="loading-area" v-else>{{language[lang].hello}}</div>
       </transition>
     </div>
     <div class="time-area">
-      <div id="time">{{time}}<b class="ap">{{ap}}</b></div>
-      <div id="date">{{date}}</div>
+      <div id="login-time">{{time}}<b class="ap">{{ap}}</b></div>
+      <div id="login-date">{{date}}</div>
     </div>
   </div>  
 </template>
 
 <script>
+import Language from '../language/LoginLanguage.js';
 import Format from '../date-format.js'
 
 export default {
+  props: ['lang'],
   data () {
     return {
+      language: Language,
       login: false,
       format: Format,
-      time: Format.getTime(),
-      date: Format.getDate(),
-      ap: Format.getAp()
+      time: Format.getTime(null, this.lang),
+      date: Format.getDate(null, this.lang),
+      ap: Format.getAp(null, this.lang)
     }
   },
   created() {
@@ -36,9 +39,9 @@ export default {
   methods: {
     refreshTime() { // 시간과 날짜 1초마다 갱신
       setInterval(() => {
-        this.time = this.format.getTime();
-        this.date = this.format.getDate();
-        this.ap = this.format.getAp();
+        this.time = this.format.getTime(null, this.lang);
+        this.date = this.format.getDate(null, this.lang);
+        this.ap = this.format.getAp(null, this.lang);
       }, 1000);
     },
     onLogin() { // 2.5초 후 부모에게 onLogin 이벤트 emit 
@@ -111,12 +114,12 @@ export default {
   bottom: 0px;
 }
 
-#time {
+#login-time {
   font-weight: bold;
   font-size: 4rem;
 }
 
-#date {
+#login-date {
   font-size: 1.5rem;
 }
 

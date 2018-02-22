@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <transition name="fade" mode="out-in"> 
-      <intro-view v-if="view === 0" @onPower="view = 1"></intro-view>
-      <boot-view v-else-if="view === 1" @bootEnd="view = 2"></boot-view>
-      <login-view v-else-if="view === 2" @onLogin="view = 3"></login-view>
-      <main-view v-else @onPoweroff="view = 0"></main-view>
+      <intro-view v-if="view === 0" :lang="lang" @onPower="view = 1" @changeLanguage="changeLanguage"></intro-view>
+      <boot-view v-else-if="view === 1" :lang="lang" @bootEnd="view = 2"></boot-view>
+      <login-view v-else-if="view === 2" :lang="lang" @onLogin="view = 3"></login-view>
+      <main-view v-else :lang="lang" @onPoweroff="view = 0" @changeLanguage="changeLanguage"></main-view>
     </transition>
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
   name: 'app',
   data () {
     return {
-      view: 0
+      view: 0,
+      lang: 'en' // Default lang: en, (kr)
     }
   },
   components: {
@@ -29,7 +30,18 @@ export default {
     'main-view': Main
   },
   methods: {
-    // 메소드 정의  
+    changeLanguage(lang) {
+      if(lang) {
+        this.lang = lang;
+        return;
+      }
+
+      if(this.lang === 'en') {
+        this.lang = 'kr';
+      } else {
+        this.lang = 'en';
+      }
+    }  
   }
 }
 </script>
@@ -70,10 +82,18 @@ div {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+  transition: opacity 0.5s
 }
 
 .fade-enter, .fade-leave-active {
   opacity: 0
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.5s;
+}
+
+.slide-enter, .slide-leave-active {
+  transform: translateX(-30);
 }
 </style>
