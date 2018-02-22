@@ -68,8 +68,10 @@ html, #app {
 
 body {
   font-family: "NanumSquareRound";
-  background: url('./assets/background.png') center;
-  background-size: cover;
+  background: -moz-radial-gradient(#8ab0dd, #42526c) fixed;
+  background: -o-radial-gradient(#8ab0dd, #42526c) fixed;
+  background: -webkit-radial-gradient(#8ab0dd, #42526c) fixed;
+  background: radial-gradient(#8ab0dd, #42526c) fixed;
 }
 
 /* 텍스트 선택방지 */

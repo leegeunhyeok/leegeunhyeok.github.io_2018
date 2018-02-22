@@ -1,6 +1,5 @@
 const $dir = 'dist/';
 const $list = [
-  'background.png', 
   'browser.png', 
   'coidroid.png',
   'email.png',
