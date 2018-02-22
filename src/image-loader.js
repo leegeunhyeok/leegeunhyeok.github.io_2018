@@ -1,4 +1,4 @@
-const $dir = 'http://localhost:8080/dist/';
+const $dir = 'dist/';
 const $list = [
   'background.png', 
   'browser.png', 
