@@ -34,7 +34,6 @@
 
 <script>
 // 데스크탑 메인 화면 
-import Project from '../model/Project.js';
 import Shortcut from '../model/Shortcut.js';
 import Format from '../date-format.js';
 
@@ -51,7 +50,6 @@ export default {
       type: 0, // 단축아이콘 타입(기본 윈도우, 브라우저, 정보)
       format: Format, // 시간포맷 변환객체 
       time: Format.getSimple(null, this.lang),
-      project: Project,
       shortcut: Shortcut
     }
   },
@@ -86,24 +84,8 @@ export default {
       }
     },
     showWindow(n) {
-      var content = null;
-      if(n === 0) { // 폴더(프로젝트)
-        this.type = 0;
-        content = this.project;
-      } else if(n === 1) { //폴더(내 정보)
-        this.type = 0;
-
-      } else if(n === 2) { //폴더(활동)
-        this.type = 0;
-
-      } else if(n === 3) { // 터미널 
-        this.type = 1;
-      } else if(n === 4) { // 브라우저 
-        this.type = 2;
-      } else { // 정보 
-        this.type = 3;
-      }
-      this.data = {'title':this.shortcut[n][this.lang + '-name'], 'content':content};
+      this.type = n;
+      this.data = {'title':this.shortcut[n][this.lang + '-name']};
       this.window = true;
     },
     onClose() { // 윈도우 닫기

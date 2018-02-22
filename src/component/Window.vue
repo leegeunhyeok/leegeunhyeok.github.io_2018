@@ -3,9 +3,11 @@
     <title-bar @onClose="$emit('onClose')" :title="data.title"></title-bar>
     <div class="content-area">
       <transition name="fade" mode="out-in">
-        <folder-view v-if="type === 0" :data="data" :lang="lang"></folder-view>
-        <terminal-view v-else-if="type === 1" :lang="lang" @changeLanguage="$emit('changeLanguage', $event)" @shutdown="$emit('shutdown')" @close="$emit('close')"></terminal-view>
-        <browser-view v-else-if="type === 2"></browser-view>
+        <project-view v-if="type === 0" :lang="lang"></project-view>
+        <aboutme-view v-else-if="type === 1" :lang="lang"></aboutme-view>
+        <activity-view v-else-if="type === 2" :lang="lang"></activity-view>
+        <terminal-view v-else-if="type === 3" :lang="lang" @changeLanguage="$emit('changeLanguage', $event)" @shutdown="$emit('shutdown')" @close="$emit('close')"></terminal-view>
+        <browser-view v-else-if="type === 4"></browser-view>
         <information-view v-else :lang="lang"></information-view>
       </transition>
     </div>
@@ -15,7 +17,9 @@
 <script>
 import Title from './TitleBar.vue';
 
-import Folder from './Folder.vue';
+import Project from './Project.vue';
+import About from './AboutMe.vue';
+import Activity from './Activity.vue';
 import Terminal from './Terminal.vue';
 import Browser from './Browser.vue';
 import Information from './Information.vue';
@@ -24,7 +28,9 @@ export default {
   props: ['data', 'type', 'lang'], // type: 0(폴더), 1(터미널), 2(브라우저), 3(정보)
   components: {
     'title-bar': Title,
-    'folder-view': Folder,
+    'project-view': Project,
+    'aboutme-view': About,
+    'activity-view': Activity,
     'terminal-view': Terminal,
     'browser-view': Browser,
     'information-view': Information

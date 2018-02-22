@@ -1,7 +1,7 @@
 <template>
   <div id="cover">
     <div class="user-area">
-      <img src="../assets/start.png" class="user-image">
+      <img src="../assets/lgh.png" class="user-image">
       <p class="user-name">{{language[lang].user}}</p>
     </div>
     <div class="button-area">

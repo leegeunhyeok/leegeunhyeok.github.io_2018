@@ -1,5 +1,3 @@
-// ^ 문자는 개행 
-
 export default {
   'en': {
     'notfound': 'commend not found',
