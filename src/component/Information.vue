@@ -10,7 +10,7 @@
       <br>
       {{language[lang].devstart}}: 2018/02/20
       <br>
-      {{language[lang].lastbuild}}: 2018/02/22
+      {{language[lang].lastbuild}}: 2018/02/23
       <br>
       <br>
       {{language[lang].source}}: <a href="https://github.com/leegeunhyeok/leegeunhyeok.github.com">Github</a>
