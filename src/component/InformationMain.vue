@@ -94,13 +94,13 @@ export default {
 }
 
 @media (max-width: 768px) {
-  #information-main {
+  #information-wrap {
     display: block;
     overflow: hidden;
   }
   
   #info-btn, #changelog-btn {
-    width: 100%;
+    min-width: 100%;
     height: 50%;
     border: none;
   }
