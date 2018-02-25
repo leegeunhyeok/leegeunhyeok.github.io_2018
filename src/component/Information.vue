@@ -10,16 +10,17 @@
       <br>
       {{language[lang].devstart}}: 2018/02/20
       <br>
-      {{language[lang].lastbuild}}: 2018/02/23
+      {{language[lang].lastbuild}}: 2018/02/25
       <br>
       <br>
       {{language[lang].source}}: <a href="https://github.com/leegeunhyeok/leegeunhyeok.github.com">Github</a>
       <br>
       <br>
-      <br>
       {{language[lang].blog}}
       <br>
       <a href="http://blog.naver.com/lghlove0509">{{language[lang].naver}}</a> / <a href="http://codevkr.tistory.com/">{{language[lang].tistory}}</a>
+      <br>
+      <button class="info-area-btn" @click="$emit('onBack')">{{back}}</button>
     </div>
   </div>
 </template>
@@ -33,6 +34,11 @@ export default {
     return {
       language: Language
     }
+  },
+  computed: {
+    back() {
+      return this.lang === 'en' ? 'Back':'뒤로';
+    }
   }
 }
 </script>
@@ -42,12 +48,14 @@ export default {
   width: 100%;
   height: 100%;
   text-align: center;
-  overflow-y: auto;
+  border-radius: 0px 0px 5px 5px;
+  overflow-y: hidden;
   background-color: #eee;
 }
 
 #information img {
-  margin: 20px 0px;
+  transform: scale(0.5);
+  margin: 15px 0px;
   width: 10rem;
 }
 
@@ -61,11 +69,11 @@ export default {
 
 @keyframes scale {
   0% {
-    transform: scale(0.8);
+    transform: scale(0.5);
   }
 
   100% {
-    transform: scale(1.2);
+    transform: scale(1.0);
   }
 }
 </style>

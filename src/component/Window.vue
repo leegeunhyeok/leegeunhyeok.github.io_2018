@@ -8,7 +8,7 @@
         <activity-view v-else-if="type === 2" :lang="lang"></activity-view>
         <terminal-view v-else-if="type === 3" :lang="lang" @changeLanguage="$emit('changeLanguage', $event)" @shutdown="$emit('shutdown')" @close="$emit('close')"></terminal-view>
         <browser-view v-else-if="type === 4"></browser-view>
-        <information-view v-else :lang="lang"></information-view>
+        <information-main-view v-else :lang="lang"></information-main-view>
       </transition>
     </div>
   </div>
@@ -22,7 +22,7 @@ import About from './AboutMe.vue';
 import Activity from './Activity.vue';
 import Terminal from './Terminal.vue';
 import Browser from './Browser.vue';
-import Information from './Information.vue';
+import InformationMain from './InformationMain.vue';
 
 export default {
   props: ['data', 'type', 'lang'], // type: 0(폴더), 1(터미널), 2(브라우저), 3(정보)
@@ -33,7 +33,7 @@ export default {
     'activity-view': Activity,
     'terminal-view': Terminal,
     'browser-view': Browser,
-    'information-view': Information
+    'information-main-view': InformationMain
   }
 }
 </script>
@@ -46,6 +46,7 @@ export default {
   height: 30rem;
   position: absolute;
   margin: auto;
+  border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   left: 50%; 
   transform:translateX(-50%);

@@ -126,6 +126,7 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 0px 0px 5px 5px;
   overflow-y: auto;
 }
 

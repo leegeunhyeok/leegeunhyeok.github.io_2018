@@ -41,6 +41,7 @@ export default {
 #browser {
   width: 100%;
   height: 100%;
+  border-radius: 0px 0px 5px 5px;
   overflow: hidden;
 }
 

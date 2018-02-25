@@ -221,7 +221,7 @@ export default {
 
 @media (max-width: 768px) {
   #shortcut-area {
-    margin-top: 12%;
+    margin-top: 10%;
   }
 
   #menu {

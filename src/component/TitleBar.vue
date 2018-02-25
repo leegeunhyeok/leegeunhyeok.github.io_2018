@@ -16,6 +16,7 @@ export default {
   width: 100%;
   height: 30px;
   background-color: #546e7a; 
+  border-radius: 5px 5px 0px 0px;
   display: flex;
 }
 

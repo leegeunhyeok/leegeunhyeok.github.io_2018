@@ -44,6 +44,6 @@ export default [
   {
     'en-name':'Information',
     'kr-name':'정보',
-    'image':'dist/info.png'
+    'image':'dist/info-main.png'
   }
 ]

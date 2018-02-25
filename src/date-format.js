@@ -5,7 +5,7 @@ const $fillZero = (value) => {
   return 2 - value.toString().length === 0 ? value : '0' + value;
 }
 
-// HH:mm
+// HH:mm:ss
 const $getTime = (date, lang) => {
   const $date = date?date:new Date();
 
