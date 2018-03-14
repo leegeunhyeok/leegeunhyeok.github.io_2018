@@ -1,6 +1,22 @@
 export default [
   {
     'en': {
+      'name':'GMMAHS Kakao plus friend',
+      'info':'Kakao ID : gmmahs',
+      'disc':'Implement an auto-responder API server'
+    },
+    'kr': {
+      'name':'광명경영회계고 카카오톡 플러스친구',
+      'info':'카카오 ID : gmmahs',
+      'disc':'자동응답 API 서버를 구현하여 서비스 중입니다'
+    },
+    'image':'dist/gmma_kakao.png',
+    'lang': 'Node.js(JavaScript)',
+    'date': '2018',
+    'link': 'https://github.com/leegeunhyeok/GMMAHS-KAKAO'
+  },
+  {
+    'en': {
       'name':'CoiDroid',
       'info':'Virtual coin(fake coin) trading simulator',
       'disc':'Implemented with Node.js server and Socket.io, this can check the coin price in real time'

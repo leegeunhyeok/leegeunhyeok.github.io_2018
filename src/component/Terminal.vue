@@ -100,7 +100,7 @@ export default {
       el.appendChild(document.createElement('br'));
       el.appendChild(document.createTextNode('Lgh\'s pc terminal'));
       el.appendChild(document.createElement('br'));
-      el.appendChild(document.createTextNode('Version 2.25.2018'));
+      el.appendChild(document.createTextNode('Version 3.02.2018'));
       el.appendChild(document.createElement('br'));
       el.appendChild(document.createElement('br'));
       el.appendChild(document.createTextNode('help - show all commends'));

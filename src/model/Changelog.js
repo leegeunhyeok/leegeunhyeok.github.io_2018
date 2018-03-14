@@ -1,5 +1,23 @@
 export default [
   {
+    'build': '2018-03-14',
+    'en': [
+      'Add kakaotalk project item',
+    ],
+    'kr': [
+      '카카오톡 프로젝트 추가',
+    ],
+  },
+  {
+    'build': '2018-03-02',
+    'en': [
+      'Add this page structure page',
+    ],
+    'kr': [
+      '본 페이지 구조 확인 페이지 추가',
+    ],
+  },
+  {
     'build': '2018-02-25',
     'en': [
       'Remove background gradient',

@@ -1,8 +1,11 @@
 <template>
   <div id="information">
-    <img src="../assets/logo.png" class="scale-image">
+    <img src="../assets/logo.png" class="scale-image" @click="clickImage">
     <div class="information-text">
       {{language[lang].info}}
+      <br>
+      <b class="click-vue">({{language[lang].click}})</b>
+      <br>
       <br>
       <br>
       {{language[lang].developer}}: <b>{{language[lang].user}}</b>
@@ -10,7 +13,7 @@
       <br>
       {{language[lang].devstart}}: 2018/02/20
       <br>
-      {{language[lang].lastbuild}}: 2018/02/25
+      {{language[lang].lastbuild}}: 2018/03/02
       <br>
       <br>
       {{language[lang].source}}: <a href="https://github.com/leegeunhyeok/leegeunhyeok.github.com">Github</a>
@@ -39,6 +42,11 @@ export default {
     back() {
       return this.lang === 'en' ? 'Back':'뒤로';
     }
+  },
+  methods: {
+    clickImage() {
+      console.log('Clicked');
+    }
   }
 }
 </script>
@@ -49,13 +57,11 @@ export default {
   height: 100%;
   text-align: center;
   border-radius: 0px 0px 5px 5px;
-  overflow-y: hidden;
   background-color: #eee;
 }
 
 #information img {
   transform: scale(0.5);
-  margin: 15px 0px;
   width: 10rem;
 }
 
@@ -63,7 +69,13 @@ export default {
   color: gray;
 }
 
+.click-vue {
+  color: #41b883;
+  font-size: 0.85rem;
+}
+
 .scale-image {
+  cursor: pointer;
   animation: scale 1s alternate infinite;
 }
 

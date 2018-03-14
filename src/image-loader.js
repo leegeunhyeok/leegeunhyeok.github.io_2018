@@ -20,8 +20,10 @@ const $list = [
   'terminal.png'
 ];
 
-$list.forEach((path, index) => {
-  new Image().src = $dir + path;
-});
+var load = () => {
+  $list.forEach((path, index) => {
+    new Image().src = $dir + path;
+  });
+}
 
-export default $list
+export default load;
