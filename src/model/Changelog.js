@@ -1,20 +1,31 @@
 export default [
   {
-    'build': '2018-03-14',
+    'build': '2018-06-24',
     'en': [
-      'Add kakaotalk project item',
+      'Add project items',
+      'Add new activity'
     ],
     'kr': [
-      '카카오톡 프로젝트 추가',
+      '프로젝트 아이템 추가',
+      '활동에 새 항목 추가'
+    ],
+  },
+  {
+    'build': '2018-03-14',
+    'en': [
+      'Add kakaotalk project item'
+    ],
+    'kr': [
+      '카카오톡 프로젝트 추가'
     ],
   },
   {
     'build': '2018-03-02',
     'en': [
-      'Add this page structure page',
+      'Add this page structure page'
     ],
     'kr': [
-      '본 페이지 구조 확인 페이지 추가',
+      '본 페이지 구조 확인 페이지 추가'
     ],
   },
   {
@@ -108,6 +119,6 @@ export default [
     ],
     'kr': [
       '개발 시작!'
-    ],
-  },
+    ]
+  }
 ]

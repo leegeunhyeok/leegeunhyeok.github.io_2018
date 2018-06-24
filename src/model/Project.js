@@ -1,6 +1,38 @@
 export default [
   {
     'en': {
+      'name':'Bit Miner',
+      'info':'Electron + Vue.js based game',
+      'disc':'Cross platform game!'
+    },
+    'kr': {
+      'name':'Bit Miner',
+      'info':'Electron + Vue.js 기반의 게임입니다',
+      'disc':'크로스 플랫폼 게임입니다!'
+    },
+    'image':'dist/bit_miner.png',
+    'lang': 'JavaScript',
+    'date': '2018',
+    'link': 'https://github.com/leegeunhyeok/BitMiner'
+  },
+  {
+    'en': {
+      'name':'Visual Electron',
+      'info':'Data visualization tool',
+      'disc':'Cross platform data visualization tool'
+    },
+    'kr': {
+      'name':'Visual Electron',
+      'info':'데이터 시각화 도구',
+      'disc':'크로스 플랫폼 데이터 시각화 도구입니다'
+    },
+    'image':'dist/visual-electron.png',
+    'lang': 'JavaScript',
+    'date': '2018',
+    'link': 'https://github.com/leegeunhyeok/visual-electron'
+  },
+  {
+    'en': {
       'name':'GMMAHS Kakao plus friend',
       'info':'Kakao ID : gmmahs',
       'disc':'Implement an auto-responder API server'

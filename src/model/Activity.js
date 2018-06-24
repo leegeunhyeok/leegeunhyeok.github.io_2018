@@ -32,4 +32,15 @@ export default [
     },
     'date': '2017~2018',
   },
+  {
+    'en': {
+      'name':'The 18th Gyeonggi-do Commercial Competition',
+      'info':'Received a `bronze prize` in the programming field',
+    },
+    'kr': {
+      'name':'제 18회 경기도 상업경진대회',
+      'info':'프로그래밍 분야 `동상` 수상',
+    },
+    'date': '2018'
+  }
 ]
