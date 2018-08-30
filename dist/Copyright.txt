@@ -1,0 +1,11 @@
+browser.png / http://www.iconarchive.com/show/simply-styled-icons-by-dakirby309/Google-Chrome-icon.html
+folder.png / http://www.iconarchive.com/show/yosemite-flat-icons-by-dtafalonso/Folder-icon.html
+terminal.png / http://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/terminal-icon.html
+email.png / http://iconshow.me/email-icon-6
+power.png / http://www.iconarchive.com/show/beautiful-flat-one-color-icons-by-elegantthemes/power-icon.html
+poweroff.png / http://www.iconarchive.com/show/beautiful-flat-icons-by-elegantthemes/power-icon.html
+github.png / https://github.com/logos
+info-main.png / http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/512/process-info-icon.png
+refresh.png / https://www.materialui.co/icon/refresh
+changelog.png / http://www.myiconfinder.com/icon/back-backup-clear-clock-history-past-reconstruct-recycle-restart-restore-revert-rewind-time-time-machine-timer-watch/6172#.128
+info.png / http://www.myiconfinder.com/icon/question-help-support-about-information-mark/11985#.128
