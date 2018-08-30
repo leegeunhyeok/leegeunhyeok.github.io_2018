@@ -1,5 +1,14 @@
 export default [
   {
+    'build': '2018-08-30',
+    'en': [
+      'Update project (vue-cli2 to vue-cli3)'
+    ],
+    'kr': [
+      '프로젝트 업데이트 (기존: vue-cli2, 신규: vue-cli3)'
+    ]
+  },
+  {
     'build': '2018-06-24',
     'en': [
       'Add project items',
