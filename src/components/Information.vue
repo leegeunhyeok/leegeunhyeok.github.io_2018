@@ -18,7 +18,7 @@
       <br>
       {{ language[$store.state.language].blog }}
       <br>
-      <a href="http://blog.naver.com/lghlove0509">{{ language[$store.state.language].naver }}</a> / <a href="http://codevkr.tistory.com/">{{ language[lang].tistory }}</a>
+      <a href="http://blog.naver.com/lghlove0509">{{ language[$store.state.language].naver }}</a> / <a href="http://codevkr.tistory.com/">{{ language[$store.state.language].tistory }}</a>
       <br>
       <button class="info-area-btn" @click="$emit('onBack')">{{ back }}</button>
     </div>
