@@ -1,6 +1,6 @@
-const $dir = 'dist/';
+const $dir = 'dist/'
 const $list = [
-  'browser.png', 
+  'browser.png',
   'changelog.png',
   'coidroid.png',
   'email.png',
@@ -18,12 +18,12 @@ const $list = [
   'refresh.png',
   'start.png',
   'terminal.png'
-];
+]
 
 var load = () => {
   $list.forEach((path, index) => {
-    new Image().src = $dir + path;
-  });
+    new Image().src = $dir + path
+  })
 }
 
-export default load;
+export default load
