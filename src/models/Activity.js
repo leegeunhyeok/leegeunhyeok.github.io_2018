@@ -42,5 +42,16 @@ export default [
       'info': '프로그래밍 분야 `동상` 수상'
     },
     'date': '2018'
+  },
+  {
+    'en': {
+      'name': '3rd National High School Circle SW Competition',
+      'info': 'Received a `silver prize`'
+    },
+    'kr': {
+      'name': '제 3회 전국 고등학교 동아리 SW경진대회',
+      'info': '`은상` 수상'
+    },
+    'date': '2018'
   }
 ]
