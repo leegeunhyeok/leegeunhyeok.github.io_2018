@@ -21,54 +21,35 @@ export default {
 }
 </script>
 
-<style>
-@font-face {
-  font-family: "NanumSquareRound";
-  src:url('/fonts/NanumSquareRoundR.eot');
-  src:url('/fonts/NanumSquareRoundR.eot#iefix') format('embedded-opentype'),
-  url('/fonts/NanumSquareRoundR.woff') format('woff'),
-  url('/fonts/NanumSquareRoundR.ttf') format('truetype');
-  src:local(¡Ø), url('/fonts/NanumSquareRoundR.woff') format('woff');
+<style lang="scss">
+@import "@/assets/style/common.scss";
+@import "@/assets/style/transition.scss";
+
+* {
+  box-sizing: border-box;
 }
 
-html, #app {
+html, body {
   margin: 0;
   padding: 0;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
-body {
+div {
+  -webkit-user-select: none;
+   -khtml-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
   font-family: "NanumSquareRound";
   background: url('./assets/background.svg') center;
   background-size: cover;
 }
 
-/* 텍스트 선택방지 */
-div {
-  -ms-user-select: none;
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s
-}
-
-.fade-enter, .fade-leave-active {
-  opacity: 0
-}
-
-.slide-enter-active, .slide-leave-active {
-  transition: transform 0.5s;
-}
-
-.slide-enter, .slide-leave-active {
-  transform: translateX(-30);
-}
 </style>
