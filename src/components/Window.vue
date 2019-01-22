@@ -1,7 +1,7 @@
 <template>
   <div id="window">
     <title-bar @onClose="$emit('onClose')" :title="data.title"></title-bar>
-    <div class="content-area">
+    <div class="window__content-area">
       <transition name="fade" mode="out-in">
         <project-view v-if="type === 0"/>
         <aboutme-view v-else-if="type === 1"/>
@@ -44,36 +44,49 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/style/common.scss";
 
 #window {
-  margin: 0;
+  position: absolute;
+  left: 50%;
   padding: 0;
+  margin: 0;
+  margin: auto;
   width: 45rem;
   height: 30rem;
-  position: absolute;
-  margin: auto;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  left: 50%;
-  transform:translateX(-50%);
-  top: 20%;
-}
+  -moz-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+       transform: translate(-50%, -50%);
 
-@media (max-width: 768px) {
-  #window {
+  @media only screen and (min-width: 320px) {
     width: 90%;
     height: 96%;
-    top: 2%;
+    top: 46%;
   }
-}
 
-.content-area {
-  position: absolute;
-  top: 30px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow-y: auto;
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+    height: 40%;
+    top: calc(46% - 50px);
+  }
+
+  @media only screen and (min-width: 1224px) {
+    width: 45rem;
+    height: 30rem;
+    top: calc(46% - 50px);
+  }
+
+  .window__content-area {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+  }
 }
 
 .list-item {
@@ -90,11 +103,11 @@ export default {
     border: none;
     outline: none;
     box-shadow: 0px 0px 5px gray;
-    -ms-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -o-transition: 0.5s;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
+    -webkit-transition: $transition-duration;
+       -moz-transition: $transition-duration;
+        -ms-transition: $transition-duration;
+         -o-transition: $transition-duration;
+            transition: $transition-duration;
   }
 
   button:hover {
@@ -123,10 +136,18 @@ export default {
 }
 
 .list-image {
-  width: 50%;
-  height: 30%;
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+
+  @media only screen and (min-width: 320px), (max-width: 768px) {
+    width: 80%;
+    height: 50%;
+  }
+
+  @media only screen and (min-width: 1224px) {
+    width: 50%;
+    height: 30%;
+  }
 }
 
 .list-info {
@@ -135,13 +156,6 @@ export default {
 
 .list-info-area {
   padding: 5px;
-}
-
-@media (max-width: 768px) {
-  .list-image {
-    width: 80%;
-    height: 50%;
-  }
 }
 
 .blue {
