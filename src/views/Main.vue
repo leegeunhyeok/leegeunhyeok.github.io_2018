@@ -158,7 +158,7 @@ export default {
   .task-bar {
     width: 100%;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, .3);
     position: absolute;
     left: 0;
     bottom: 0;
@@ -172,15 +172,15 @@ export default {
       outline: none;
       font-weight: bold;
       font-size: 1rem;
-      background-color: rgba(0, 0, 0, 0.2);
-      -webkit-transition: 0.5s;
-         -moz-transition: 0.5s;
-          -ms-transition: 0.5s;
-           -o-transition: 0.5s;
-              transition: 0.5s;
+      background-color: rgba(0, 0, 0, .2);
+      -webkit-transition: $transition-duration;
+         -moz-transition: $transition-duration;
+          -ms-transition: $transition-duration;
+           -o-transition: $transition-duration;
+              transition: $transition-duration;
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, .4);
       }
 
       .task-bar__menu-button--start {
@@ -202,7 +202,7 @@ export default {
       text-align: center;
       font-size: 1rem;
       float: right;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, .2);
     }
   }
 
@@ -210,7 +210,7 @@ export default {
     position: absolute;
     left: 0;
     bottom: 50px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, .5);
     color: #fff;
     text-align: center;
 
@@ -231,19 +231,19 @@ export default {
       margin-top: 30%;
       margin-bottom: 2rem;
       border-radius: 50%;
-      -webkit-transition: 0.5s;
-         -moz-transition: 0.5s;
-          -ms-transition: 0.5s;
-           -o-transition: 0.5s;
-              transition: 0.5s;
+      -webkit-transition: $transition-duration;
+         -moz-transition: $transition-duration;
+          -ms-transition: $transition-duration;
+           -o-transition: $transition-duration;
+              transition: $transition-duration;
 
       &:hover {
         box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
-        -webkit-transform: scale(1.2);
-           -moz-transform: scale(1.2);
-            -ms-transform: scale(1.2);
-             -o-transform: scale(1.2);
-                transform: scale(1.2);
+        -webkit-transform: scale(1.1);
+           -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+             -o-transform: scale(1.1);
+                transform: scale(1.1);
       }
     }
 
@@ -266,14 +266,14 @@ export default {
         padding: 2px 6px;
         color: #fff;
         background-color: transparent;
-        -webkit-transition: .3s;
-           -moz-transition: .3s;
-            -ms-transition: .3s;
-             -o-transition: .3s;
-                transition: .3s;
+        -webkit-transition: $transition-duration;
+           -moz-transition: $transition-duration;
+            -ms-transition: $transition-duration;
+             -o-transition: $transition-duration;
+                transition: $transition-duration;
 
         &:hover {
-          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, .5);
         }
       }
     }

@@ -1,18 +1,25 @@
 <template>
-  <div id="cover">
-    <div class="user-area">
-      <img src="../assets/lgh.png" class="user-image">
-      <p class="user-name">{{ language[$store.state.language].user }}</p>
+  <div id="login">
+    <div class="login__user-profile">
+      <img src="../assets/lgh.png" class="login__user-profile__image">
+      <p class="login__user-profile__name">{{ language[$store.state.language].user }}</p>
     </div>
-    <div class="button-area">
+    <div class="login__button-area">
       <transition name="fade" mode="out-in">
-        <button @click="onLogin" v-if="!login">{{ language[$store.state.language].login }}</button>
-        <div class="loading-area" v-else>{{ language[$store.state.language].hello }}</div>
+        <button class="login__button-area__button"
+          @click="onLogin" v-if="!login"
+        >
+          {{ language[$store.state.language].login }}
+        </button>
+        <div class="login__button-area__message" v-else>{{ language[$store.state.language].hello }}</div>
       </transition>
     </div>
-    <div class="time-area">
-      <div id="login-time">{{ time }}<b class="ap">{{ ap }}</b></div>
-      <div id="login-date">{{ date }}</div>
+    <div class="login__time-area">
+      <div class="login__time-area--time">
+        {{ time }}
+        <b class="login__time-area--ap">{{ ap }}</b>
+      </div>
+      <div class="login__time-area--date">{{ date }}</div>
     </div>
   </div>
 </template>
@@ -53,85 +60,87 @@ export default {
 }
 </script>
 
-<style>
-#cover {
+<style lang="scss">
+
+#login {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
-  top: 0;
-  left: 0;
+
+  .login__user-profile {
+    width: 100%;
+    margin-top: 10%;
+    text-align: center;
+
+    .login__user-profile__image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background-color: #fff;
+    }
+
+    .login__user-profile__name {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  }
+
+  .login__button-area {
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+
+    .login__button-area__button {
+      cursor: pointer;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0);
+      outline: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px 20px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #eee;
+      }
+    }
+
+    .login__button-area__message {
+      width: 100%;
+      font-weight: bold;
+      font-size: 2rem;
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+  .login__time-area {
+    position: absolute;
+    bottom: 0;
+    margin: 20px;
+    color: #fff;
+
+    .login__time-area--time {
+      font-weight: bold;
+      font-size: 4rem;
+    }
+
+    .login__time-area--date {
+      font-size: 1.5rem;
+    }
+
+    .login__time-area--ap {
+      margin-left: 10px;
+      font-size: 1.5rem;
+    }
+  }
 }
 
-.user-area {
-  width: 100%;
-  margin-top: 10%;
-  text-align: center;
-}
-
-.user-image {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  background-color: #fff;
-}
-
-.user-name {
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.button-area {
-  width: 100%;
-  margin-top: 50px;
-  text-align: center;
-}
-
-.button-area button {
-  cursor: pointer;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0);
-  outline: none;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 20px;
-  transition: 0.5s;
-}
-
-.button-area button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #eee;
-}
-
-.time-area {
-  margin: 20px;
-  color: #fff;
-  position: absolute;
-  bottom: 0px;
-}
-
-#login-time {
-  font-weight: bold;
-  font-size: 4rem;
-}
-
-#login-date {
-  font-size: 1.5rem;
-}
-
-.ap {
-  margin-left: 10px;
-  font-size: 1.5rem;
-}
-
-.loading-area {
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 2rem;
-}
 </style>

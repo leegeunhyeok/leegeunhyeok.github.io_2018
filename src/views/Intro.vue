@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/style/common.scss";
 
 #intro {
   position: absolute;
@@ -54,7 +55,7 @@ export default {
   height: 100%;
   background-color: #eee;
   overflow-y: auto;
-  
+
   .intro__intro-text-area {
     margin-top: 10%;
     text-align: center;
@@ -89,11 +90,11 @@ export default {
     .intro__power-btn-area__image {
       cursor: pointer;
       border-radius: 50%;
-      -webkit-transition: 0.5s;
-         -moz-transition: 0.5s;
-          -ms-transition: 0.5s;
-           -o-transition: 0.5s;
-              transition: 0.5s;
+      -webkit-transition: $transition-duration;
+         -moz-transition: $transition-duration;
+          -ms-transition: $transition-duration;
+           -o-transition: $transition-duration;
+              transition: $transition-duration;
 
       &:hover {
         box-shadow: 0px 0px 20px rgba(128, 128, 128, 1);
@@ -136,11 +137,11 @@ export default {
       padding: 5px;
       box-shadow: 1px 1px 5px gray;
       color: gray;
-      -webkit-transition: 0.5s;
-         -moz-transition: 0.5s;
-          -ms-transition: 0.5s;
-           -o-transition: 0.5s;
-              transition: 0.5s;
+      -webkit-transition: $transition-duration;
+         -moz-transition: $transition-duration;
+          -ms-transition: $transition-duration;
+           -o-transition: $transition-duration;
+              transition: $transition-duration;
 
       &:hover {
         box-shadow: 3px 3px 10px gray;
