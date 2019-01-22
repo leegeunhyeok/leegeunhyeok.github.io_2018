@@ -149,7 +149,7 @@ export default {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        max-width: 32rem;
+        max-width: 36rem;
         padding: 1rem;
       }
     }
