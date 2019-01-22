@@ -68,8 +68,8 @@ export default {
   }
 
   @media only screen and (min-width: 768px) {
-    width: 50%;
-    height: 40%;
+    width: 65%;
+    height: 60%;
     top: calc(50% - 50px);
   }
 
