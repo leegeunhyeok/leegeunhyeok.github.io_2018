@@ -1,0 +1,17 @@
+/* Fade transition */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
+/* Slide transition */
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.5s;
+}
+
+.slide-enter, .slide-leave-active {
+  transform: translateX(-30);
+}
