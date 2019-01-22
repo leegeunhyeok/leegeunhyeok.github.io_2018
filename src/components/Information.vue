@@ -1,6 +1,6 @@
 <template>
   <div id="information">
-    <img src="../assets/logo.png" class="scale-image" @click="clickImage">
+    <img src="../assets/logo.png" class="scale-image">
     <div class="information-text">
       {{ language[$store.state.language].info}}
       <br>
@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #information {
   width: 100%;
   height: 100%;

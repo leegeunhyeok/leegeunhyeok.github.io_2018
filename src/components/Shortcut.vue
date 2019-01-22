@@ -1,7 +1,7 @@
 <template>
   <div class="shortcut" @click="$emit('onClick')">
-    <img :src="path">
-    <div class="shortcut-name">
+    <img class="shortcut__image" :src="path">
+    <div class="shortcut__name">
       <slot name="shortcut-name"></slot>
     </div>
   </div>
@@ -11,11 +11,16 @@
 // 단축 아이콘
 
 export default {
-  props: ['path']
+  props: {
+    path: String,
+    required: true
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "@/assets/style/common.scss";
+
 .shortcut {
   cursor: pointer;
   width: 6rem;
@@ -23,24 +28,25 @@ export default {
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -ms-transition: $transition-duration;
+  -moz-transition: $transition-duration;
+  -o-transition: $transition-duration;
+  -webkit-transition: $transition-duration;
+  transition: $transition-duration;
+
+  .shortcut__image {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .shortcut__name {
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .2);
+  }
 }
 
-.shortcut:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.shortcut img {
-  width: 4rem;
-  height: 4rem;
-}
-
-.shortcut-name {
-  color: #fff;
-  text-shadow: 1px 1px 2px #000;
-}
 </style>

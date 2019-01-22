@@ -3,12 +3,14 @@
     <title-bar @onClose="$emit('onClose')" :title="data.title"></title-bar>
     <div class="content-area">
       <transition name="fade" mode="out-in">
-        <project-view v-if="type === 0"></project-view>
-        <aboutme-view v-else-if="type === 1"></aboutme-view>
-        <activity-view v-else-if="type === 2"></activity-view>
-        <terminal-view v-else-if="type === 3" @shutdown="$emit('shutdown')" @close="$emit('close')"></terminal-view>
-        <browser-view v-else-if="type === 4"></browser-view>
-        <information-main-view v-else></information-main-view>
+        <project-view v-if="type === 0"/>
+        <aboutme-view v-else-if="type === 1"/>
+        <activity-view v-else-if="type === 2"/>
+        <terminal-view v-else-if="type === 3"
+          @shutdown="$emit('shutdown')"
+          @close="$emit('close')"/>
+        <browser-view v-else-if="type === 4"/>
+        <information-view v-else/>
       </transition>
     </div>
   </div>
@@ -22,10 +24,13 @@ import About from '@/components/AboutMe.vue'
 import Activity from '@/components/Activity.vue'
 import Terminal from '@/components/Terminal.vue'
 import Browser from '@/components/Browser.vue'
-import InformationMain from '@/components/InformationMain.vue'
+import Information from '@/components/Information.vue'
 
 export default {
-  props: ['data', 'type'], // type: 0(폴더), 1(터미널), 2(브라우저), 3(정보)
+  props: {
+    data: Object,
+    type: Number // type: 0(폴더), 1(터미널), 2(브라우저), 3(정보)
+  },
   components: {
     'title-bar': Title,
     'project-view': Project,
@@ -33,7 +38,7 @@ export default {
     'activity-view': Activity,
     'terminal-view': Terminal,
     'browser-view': Browser,
-    'information-main-view': InformationMain
+    'information-view': Information
   }
 }
 </script>
