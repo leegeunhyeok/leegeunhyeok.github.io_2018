@@ -11,7 +11,9 @@
     <div class="intro__language-area">
       <div class="intro__language-area__text">{{ changeLang }}</div>
       <transition name="fade" mode="out-in">
-        <button class="intro__language-area__button" @click="changeLanguage()" v-if="$store.state.language === 'en'">Korean</button>
+        <button class="intro__language-area__button" @click="changeLanguage()">
+          {{ willChangeLanguage }}
+        </button>
       </transition>
     </div>
   </div>
@@ -29,6 +31,9 @@ export default {
   computed: {
     changeLang () {
       return this.$store.state.language === 'en' ? 'Change Language' : '언어 변경'
+    },
+    willChangeLanguage () {
+      return this.$store.state.language === 'en' ? 'Korean' : '영어'
     }
   },
   methods: {
