@@ -1,3 +1,5 @@
+const directory = 'img/project/'
+
 export default [
   {
     'en': {
@@ -10,7 +12,7 @@ export default [
       'info': 'Electron + Vue.js 기반의 게임입니다',
       'disc': '크로스 플랫폼 게임입니다!'
     },
-    'image': 'dist/bit_miner.png',
+    'image': directory + 'bit_miner.png',
     'lang': 'JavaScript',
     'date': '2018',
     'link': 'https://github.com/leegeunhyeok/BitMiner'
@@ -26,7 +28,7 @@ export default [
       'info': '데이터 시각화 도구',
       'disc': '크로스 플랫폼 데이터 시각화 도구입니다'
     },
-    'image': 'dist/visual-electron.png',
+    'image': directory + 'visual-electron.png',
     'lang': 'JavaScript',
     'date': '2018',
     'link': 'https://github.com/leegeunhyeok/visual-electron'
@@ -42,7 +44,7 @@ export default [
       'info': '카카오 ID : gmmahs',
       'disc': '자동응답 API 서버를 구현하여 서비스 중입니다'
     },
-    'image': 'dist/gmma_kakao.png',
+    'image': directory + 'gmma_kakao.png',
     'lang': 'Node.js(JavaScript)',
     'date': '2018',
     'link': 'https://github.com/leegeunhyeok/GMMAHS-KAKAO'
@@ -58,7 +60,7 @@ export default [
       'info': '가상의 코인을 거래하여 수익을 내는 시뮬레이션 웹 서비스입니다',
       'disc': 'Node.js 서버와 Socket.io로 구현된 본 서비스는 실시간으로 시세 확인이 가능합니다'
     },
-    'image': 'dist/coidroid.png',
+    'image': directory + 'coidroid.png',
     'lang': 'Web',
     'date': '2018',
     'link': 'https://github.com/leegeunhyeok/CoiDroid'
@@ -74,7 +76,7 @@ export default [
       'info': '본교의 공지사항, 급식일정, 커뮤니티 바로가기 기능이 있는 앱 입니다',
       'disc': '교육청 및 학교 홈페이지 파싱을 통해 공지사항, 급식표 데이터를 수집하여 제공합니다'
     },
-    'image': 'dist/gmma.png',
+    'image': directory + 'gmma.png',
     'lang': 'Android',
     'date': '2017',
     'link': 'https://github.com/leegeunhyeok/GMMA'
@@ -90,7 +92,7 @@ export default [
       'info': '나눔로또 홈페이지에서 HTML 데이터를 파싱한 후 사용자에게 보여주는 프로그램입니다',
       'disc': 'Swing으로 GUI를 구현하고 UI스레드와 작업스레드를 분리하여 유연한 처리가 가능합니다'
     },
-    'image': 'dist/lotto.png',
+    'image': directory + 'lotto.png',
     'lang': 'Java',
     'date': '2017',
     'link': 'https://github.com/leegeunhyeok/Project/tree/master/JAVA/Lotto'
