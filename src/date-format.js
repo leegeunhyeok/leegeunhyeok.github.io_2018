@@ -1,61 +1,61 @@
 /* 날짜, 시간 포맷 */
 
 // 00 형식으로 변환
-const $fillZero = (value) => {
+const appendZero = (value) => {
   return 2 - value.toString().length === 0 ? value : '0' + value
 }
 
 // HH:mm:ss
-const $getTime = (date, lang) => {
-  const $date = date || new Date()
+const getTime = (date, lang) => {
+  const DATE = date || new Date()
 
   if (lang === 'en') {
-    return `${$fillZero($date.getHours())}:${$fillZero($date.getMinutes())}:${$fillZero($date.getSeconds())}`
+    return `${appendZero(DATE.getHours())}:${appendZero(DATE.getMinutes())}:${appendZero(DATE.getSeconds())}`
   } else {
-    let hour = $date.getHours()
-    return `${hour < 12 ? hour : hour - 12}:${$fillZero($date.getMinutes())}:${$fillZero($date.getSeconds())}`
+    const hour = DATE.getHours()
+    return `${hour < 12 ? hour : hour - 12}:${appendZero(DATE.getMinutes())}:${appendZero(DATE.getSeconds())}`
   }
 }
 
 // ddd, dd MMM
-const $getDate = (date, lang) => {
-  const $month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  const $weekEn = ['Sun', 'Mon', 'Thu', 'Wed', 'Thu', 'Fri', 'Sat']
-  const $weekKr = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
-  const $date = date || new Date()
+const getDate = (date, lang) => {
+  const MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const WEEK_EN = ['Sun', 'Mon', 'Thu', 'Wed', 'Thu', 'Fri', 'Sat']
+  const WEEK_KR = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
+  const DATE = date || new Date()
 
   if (lang === 'en') {
-    return `${$weekEn[$date.getDay()]}, ${$date.getDate()} ${$month[$date.getMonth()]}`
+    return `${WEEK_EN[DATE.getDay()]}, ${DATE.getDate()} ${MONTH[DATE.getMonth()]}`
   } else {
-    return `${$date.getMonth() + 1 + '월'} ${$date.getDate() + '일'} ${$weekKr[$date.getDay()]}`
+    return `${DATE.getMonth() + 1 + '월'} ${DATE.getDate() + '일'} ${WEEK_KR[DATE.getDay()]}`
   }
 }
 
 // AM, PM
-const $getAp = (date, lang) => {
-  const $date = date || new Date()
+const getAp = (date, lang) => {
+  const DATE = date || new Date()
   if (lang === 'en') {
-    return $date.getHours() < 12 ? 'AM' : 'PM'
+    return DATE.getHours() < 12 ? 'AM' : 'PM'
   } else {
-    return $date.getHours() < 12 ? '오전' : '오후'
+    return DATE.getHours() < 12 ? '오전' : '오후'
   }
 }
 
 // HH:mm a/p
-const $getSimple = (date, lang) => {
-  const $date = date || new Date()
-  var hour = $date.getHours()
-  var min = $fillZero($date.getMinutes())
+const getSimple = (date, lang) => {
+  const DATE = date || new Date()
+  var hour = DATE.getHours()
+  var min = appendZero(DATE.getMinutes())
   if (lang === 'en') {
-    return `${$fillZero(hour)}:${min} ${hour < 12 ? 'AM' : 'PM'}`
+    return `${appendZero(hour)}:${min} ${hour < 12 ? 'AM' : 'PM'}`
   } else {
     return `${hour < 12 ? '오전' : '오후'} ${hour < 12 ? hour : hour - 12}:${min}`
   }
 }
 
 export default {
-  'getTime': $getTime,
-  'getDate': $getDate,
-  'getAp': $getAp,
-  'getSimple': $getSimple
+  getTime,
+  getDate,
+  getAp,
+  getSimple
 }
