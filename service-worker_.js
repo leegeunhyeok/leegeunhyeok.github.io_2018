@@ -1,6 +1,18 @@
 const _version = 'v1';
-const cacheName = 'v2';
+const cacheName = 'v1';
 const cacheList = [
+  '/',
+  '/favicon.ico',
+  '/dist/css/app.4ee0896f.css',
+  '/dist/img/background.4e9fb0cd.svg',
+  '/dist/img/google.29d525f9.png',
+  '/dist/img/lgh.4b00864e.png',
+  '/dist/img/logo.c2a605fb.png',
+  '/dist/img/poweroff.b2f417c1.png',
+  '/dist/js/app.da9c5acc.js',
+  '/dist/js/app.da9c5acc.js.map',
+  '/dist/js/chunk-vendors.2307036b.js',
+  '/dist/js/chunk-vendors.2307036b.js.map',
   '/img/project/bit_miner.png',
   '/img/project/coidroid.png',
   '/img/project/gmma.png',
@@ -15,17 +27,11 @@ const cacheList = [
   '/img/shortcut/terminal.png'
 ]
 
-const { assets } = self.serviceWorkerOption
-let assetsToCache = [...assets, './'].concat(cacheList)
-assetsToCache = assetsToCache.map(path => {
-  return new URL(path, self.location).toString()
-})
-
 self.addEventListener('install', event => {
   self.skipWaiting()
   event.waitUntil(
     caches.open(cacheName).then(cache => {
-      return cache.addAll(assetsToCache)
+      return cache.addAll(cacheList)
     })
   )
 })

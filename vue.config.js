@@ -1,11 +1,20 @@
-const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const path = require('path')
 
 module.exports = {
   configureWebpack: {
     plugins: [
-      new ServiceWorkerWebpackPlugin({
-        entry: path.join(__dirname, 'sw.js')
+      new SWPrecacheWebpackPlugin({
+        cacheId: 'v1',
+        filepath: './service-worker.js',
+        minify: false,
+        staticFileGlobs: [
+          './img/**/*.{png,jpg,ico}',
+          './fonts/*.{eot,ttf,woff}'
+        ],
+        stripPrefix: '.',
+        mergeStaticsConfig: true,
+        staticFileGlobsIgnorePatterns: [/\.map$/]
       })
     ]
   },
