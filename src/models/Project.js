@@ -1,4 +1,4 @@
-const directory = 'img/project/'
+const directory = '/img/project/'
 
 export default [
   {
