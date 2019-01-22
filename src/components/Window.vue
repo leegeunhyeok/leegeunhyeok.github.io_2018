@@ -63,20 +63,20 @@ export default {
 
   @media only screen and (min-width: 320px) {
     width: 90%;
-    height: 96%;
+    height: 90%;
     top: 46%;
   }
 
   @media only screen and (min-width: 768px) {
     width: 50%;
     height: 40%;
-    top: calc(46% - 50px);
+    top: calc(50% - 50px);
   }
 
   @media only screen and (min-width: 1224px) {
     width: 45rem;
     height: 30rem;
-    top: calc(46% - 50px);
+    top: calc(50% - 50px);
   }
 
   .window__content-area {
