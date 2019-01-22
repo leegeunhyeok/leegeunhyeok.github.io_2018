@@ -32,8 +32,8 @@ export default {
     }
   },
   methods: {
-    changeLanguage (langCode) {
-      this.$store.commit('changeLanguage', langCode)
+    changeLanguage () {
+      this.$store.commit('changeLanguage', this.$store.state.language === 'en' ? 'kr' : 'en')
     }
   }
 }
