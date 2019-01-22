@@ -15,10 +15,10 @@ const cacheList = [
   '/img/shortcut/terminal.png'
 ]
 
-const { assets } = global.serviceWorkerOption
+const { assets } = self.serviceWorkerOption
 let assetsToCache = [...assets, './'].concat(cacheList)
 assetsToCache = assetsToCache.map(path => {
-  return new URL(path, global.location).toString()
+  return new URL(path, self.location).toString()
 })
 
 self.addEventListener('install', event => {
