@@ -1,8 +1,6 @@
-const config = require('config')
-
 let configureWebpack = {}
 
-if (config.get('env') === 'prod') {
+if (process.env.NODE_ENV === 'production') {
   configureWebpack = require('./vue.prod')
 } else {
   configureWebpack = require('./vue.dev')
