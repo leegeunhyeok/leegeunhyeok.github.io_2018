@@ -3,7 +3,7 @@
   "short_name": "LGH's PC",
   "theme_color": "#505d71",
   "background_color": "#ededed",
-  "display": "standalone",
+  "display": "fullscreen",
   "Scope": "/",
   "start_url": "/",
   "icons": [
