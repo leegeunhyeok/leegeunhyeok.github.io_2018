@@ -72,8 +72,15 @@ export default {
 
   .login__user-profile {
     width: 100%;
-    margin-top: 10%;
     text-align: center;
+
+    @media only screen and (min-width: 320px) {
+      margin-top: 10%;
+    }
+
+    @media only screen and (min-width: 768px), (min-width: 1224px) {
+      margin-top: 20%;
+    }
 
     .login__user-profile__image {
       width: 200px;
@@ -129,15 +136,27 @@ export default {
 
     .login__time-area--time {
       font-weight: bold;
-      font-size: 4rem;
+
+      @media only screen and (min-width: 320px) {
+        font-size: 2.5rem;
+      }
+
+      @media only screen and (min-width: 768px), (min-width: 1224px) {
+        font-size: 4rem;
+      }
     }
 
     .login__time-area--date {
-      font-size: 1.5rem;
+      @media only screen and (min-width: 320px) {
+        font-size: 1rem;
+      }
+
+      @media only screen and (min-width: 768px), (min-width: 1224px) {
+        font-size: 1.5rem;
+      }
     }
 
     .login__time-area--ap {
-      margin-left: 10px;
       font-size: 1.5rem;
     }
   }

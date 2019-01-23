@@ -227,7 +227,6 @@ export default {
 
     .start-menu__power-image {
       cursor: pointer;
-      margin-top: 30%;
       margin-bottom: 2rem;
       border-radius: 50%;
       -webkit-transition: $transition-duration;
@@ -235,6 +234,14 @@ export default {
           -ms-transition: $transition-duration;
            -o-transition: $transition-duration;
               transition: $transition-duration;
+
+      @media only screen and (min-width: 320px), (min-width: 768px) {
+        margin-top: 50%;
+      }
+
+      @media only screen and (min-width: 1224px) {
+        margin-top: 40%;
+      }
 
       &:hover {
         box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);

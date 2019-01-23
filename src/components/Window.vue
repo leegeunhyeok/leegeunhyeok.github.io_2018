@@ -48,7 +48,6 @@ export default {
 
 #window {
   position: absolute;
-  left: 50%;
   padding: 0;
   margin: 0;
   margin: auto;
@@ -56,27 +55,41 @@ export default {
   height: 30rem;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  -moz-transform: translate(-50%, -50%);
-   -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-       transform: translate(-50%, -50%);
 
   @media only screen and (min-width: 320px) {
-    width: 90%;
-    height: 90%;
-    top: 46%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+    -webkit-transform: none;
+       -moz-transform: none;
+        -ms-transform: none;
+         -o-transform: none;
+            transform: none;
   }
 
   @media only screen and (min-width: 768px) {
     width: 65%;
     height: 60%;
     top: calc(50% - 50px);
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+         -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
 
   @media only screen and (min-width: 1224px) {
     width: 45rem;
     height: 30rem;
     top: calc(50% - 50px);
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+         -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
 
   .window__content-area {

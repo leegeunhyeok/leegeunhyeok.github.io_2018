@@ -1,13 +1,13 @@
 <template>
   <div id="about">
-    <img src="../assets/lgh.png">
-    <div id="about-name">{{ language[$store.state.language].name }}</div>
-    <div id="about-birthday">{{ language[$store.state.language].birth }} 2000.05.09</div>
-    <div id="about-motto">{{ language[$store.state.language].motto }}: {{ language[$store.state.language]['motto-text'] }}</div>
-    <div id="about-ecudation">
-      <div id="about-ecudation-title">{{ language[$store.state.language].education }}</div>
-      <div class="school">{{ language[$store.state.language].high }}</div>
-      <div class="school">{{ language[$store.state.language].middle }}</div>
+    <img class="about__profile-image" src="@/assets/lgh.png">
+    <div class="about__profile-name">{{ language[$store.state.language].name }}</div>
+    <div class="about__profile-birth">{{ language[$store.state.language].birth }} 2000.05.09</div>
+    <div class="about__profile-motto">{{ language[$store.state.language].motto }}: {{ language[$store.state.language]['motto-text'] }}</div>
+    <div class="about__profile-education">
+      <div id="about__profile-education__title">{{ language[$store.state.language].education }}</div>
+      <div class="about__profile-education__text">{{ language[$store.state.language].high }}</div>
+      <div class="about__profile-education__text">{{ language[$store.state.language].middle }}</div>
     </div>
   </div>
 </template>
@@ -24,44 +24,72 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
 #about {
   width: 100%;
   height: 100%;
   text-align: center;
   border-radius: 0px 0px 5px 5px;
-  overflow-y: auto;
-  overflow-x: hidden;
   background-color: #eee;
-}
+  overflow-x: hidden;
+  overflow-y: auto;
 
-#about img {
-  border: 5px solid #fff;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px gray;
-  margin: 10px 0;
-}
+  .about__profile-image {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .5);
 
-#about-name {
-  font-size: 1rem;
-  font-weight: bold;
-}
+    @media only screen and (min-width: 320px) {
+      margin-top: 12%;
+    }
 
-#about-birthday {
-  margin-top: 5px;
-  font-size: 0.8rem;
-}
+    @media only screen and (min-width: 768px) {
+      margin-top: 14%;
+    }
 
-#about-motto {
-  margin-top: 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: gray;
-  -ms-animation: bounce 1s alternate infinite;
-  -moz-animation: bounce 1s alternate infinite;
-  -o-animation: bounce 1s alternate infinite;
-  -webkit-animation: bounce 1s alternate infinite;
-  animation: bounce 0.7s alternate infinite;
+    @media only screen and (min-width: 1224px) {
+      margin-top: 26px;
+    }
+  }
+
+  .about__profile-name {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .about__profile-birth {
+    margin-top: 5px;
+    font-size: .8rem;
+  }
+
+  .about__profile-motto {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: gray;
+    -webkit-animation: bounce 1s alternate infinite;
+       -moz-animation: bounce 1s alternate infinite;
+        -ms-animation: bounce 1s alternate infinite;
+         -o-animation: bounce 1s alternate infinite;
+            animation: bounce 1s alternate infinite;
+  }
+
+  .about__profile-education {
+    margin-top: 3rem;
+
+    .about__profile-education__title {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .about__profile-education__text {
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: gray;
+    }
+  }
 }
 
 @-ms-keyframes bounce {
@@ -81,7 +109,7 @@ export default {
     color: blue;
   }
   100% {
-    -ms-transform: scale(1.2);
+    -ms-transform: scale(1.1);
     color: purple;
   }
 }
@@ -103,7 +131,7 @@ export default {
     color: blue;
   }
   100% {
-    -o-transform: scale(1.2);
+    -o-transform: scale(1.1);
     color: purple;
   }
 }
@@ -125,7 +153,7 @@ export default {
     color: blue;
   }
   100% {
-    -moz-transform: scale(1.2);
+    -moz-transform: scale(1.1);
     color: purple;
   }
 }
@@ -147,7 +175,7 @@ export default {
     color: blue;
   }
   100% {
-    -webkit-transform: scale(1.2);
+    -webkit-transform: scale(1.1);
     color: purple;
   }
 }
@@ -169,24 +197,9 @@ export default {
     color: blue;
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(1.1);
     color: purple;
   }
 }
 
-#about-ecudation {
-  margin-top: 3rem;
-}
-
-#about-ecudation-title {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.school {
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: gray;
-}
 </style>
