@@ -4,13 +4,13 @@
     <div class="window__content-area">
       <transition name="fade" mode="out-in">
         <project-view v-if="type === 0"/>
-        <aboutme-view v-else-if="type === 1"/>
+        <about-view v-else-if="type === 1"/>
         <activity-view v-else-if="type === 2"/>
         <terminal-view v-else-if="type === 3"
           @shutdown="$emit('shutdown')"
-          @close="$emit('close')"/>
+          @onClose="$emit('onClose')"/>
         <browser-view v-else-if="type === 4"/>
-        <information-view v-else/>
+        <information-view @onClose="$emit('onClose')" v-else/>
       </transition>
     </div>
   </div>
@@ -34,7 +34,7 @@ export default {
   components: {
     'title-bar': Title,
     'project-view': Project,
-    'aboutme-view': About,
+    'about-view': About,
     'activity-view': Activity,
     'terminal-view': Terminal,
     'browser-view': Browser,
@@ -89,7 +89,7 @@ export default {
   }
 }
 
-.list-item {
+.item {
   width: 90%;
   margin: 20px auto;
   padding: 20px 0;
@@ -97,68 +97,66 @@ export default {
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
-  button {
-    margin-top: 10px;
+  .item__more-button {
     cursor: pointer;
-    border: none;
     outline: none;
-    box-shadow: 0px 0px 5px gray;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
     -webkit-transition: $transition-duration;
        -moz-transition: $transition-duration;
         -ms-transition: $transition-duration;
          -o-transition: $transition-duration;
             transition: $transition-duration;
+
+    &:hover {
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, .5);
+    }
   }
 
-  button:hover {
-    box-shadow: 1px 1px 10px gray;
-    -ms-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+  .item__title {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: dodgerblue;
+  }
+
+  .item__image {
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+
+    @media only screen and (min-width: 320px), (max-width: 768px) {
+      width: 80%;
+      height: 50%;
+    }
+
+    @media only screen and (min-width: 1224px) {
+      width: 50%;
+      height: 30%;
+    }
+  }
+
+  .item__info {
+    margin: 10px 0px;
+
+    .item__info__text {
+      padding: 5px;
+    }
+
+    .item__info__text--blue {
+      color: dodgerblue;
+    }
+  }
+
+  .item__used-language {
+    padding: 0;
+    margin: 10px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: gray;
   }
 }
 
-.list-title {
-  margin: 10px 0px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: dodgerblue;
-}
-
-.list-lang {
-  color: gray;
-  padding: 0px;
-  margin: 10px 0px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.list-image {
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
-
-  @media only screen and (min-width: 320px), (max-width: 768px) {
-    width: 80%;
-    height: 50%;
-  }
-
-  @media only screen and (min-width: 1224px) {
-    width: 50%;
-    height: 30%;
-  }
-}
-
-.list-info {
-  margin: 10px 0px;
-}
-
-.list-info-area {
-  padding: 5px;
-}
-
-.blue {
-  color: dodgerblue;
-}
 </style>

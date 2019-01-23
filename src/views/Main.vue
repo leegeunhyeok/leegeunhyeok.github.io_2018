@@ -20,7 +20,6 @@
           :type="type"
           @onClose="onClose"
           @shutdown="$emit('onPoweroff')"
-          @close="window = false"
         />
       </transition>
     </div>

@@ -8,7 +8,7 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  base: '/dist',
+  base: '/dist/',
   routes: [
     {
       path: '/',
@@ -21,8 +21,8 @@ export default new Router({
       component: Login
     },
     {
-      path: '/main',
-      name: 'main',
+      path: '/desktop',
+      name: 'desktop',
       component: Main
     }
   ]

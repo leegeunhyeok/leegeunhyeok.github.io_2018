@@ -1,10 +1,14 @@
 <template>
-  <div id="terminal-background">
-    <div id="terminal">
-      <div class="commend">
-        <b class="terminal-user">leegeunhyeok@lgh-com</b>
-        :~$
-        <input type="text" v-model="commend" @keypress="onKeypress" id="terminal-input">
+  <div id="terminal">
+    <div class="terminal__command-area">
+      <div class="terminal__command-area__command">
+        <b class="terminal__command-area__command--user">leegeunhyeok@lgh-com</b>:~$
+        <input class="terminal__command-area__command__input"
+          type="text"
+          ref="input"
+          @keypress="onKeypress"
+          v-model="commend"
+        >
       </div>
     </div>
   </div>
@@ -23,7 +27,7 @@ export default {
   },
   mounted () {
     this.terminal = document.getElementById('terminal')
-    document.getElementById('terminal-input').focus()
+    this.$refs.input.focus()
   },
   methods: {
     onKeypress (e) {
@@ -37,14 +41,14 @@ export default {
 
       // 결과 엘리먼트
       var result = document.createElement('div')
-      result.classList.add('commend') // 클래스 적용
+      result.classList.add('terminal__command-area')
 
       var user = document.createElement('b')
-      user.classList.add('terminal-user')
+      user.classList.add('terminal__command-area__command--user')
       user.appendChild(document.createTextNode('leegeunhyeok@lgh-com'))
 
       result.appendChild(user) // 사용자 이름 영역 추가
-      result.appendChild(document.createTextNode(' :~$ ' + $commend)) // 입력한 명령어 추가
+      result.appendChild(document.createTextNode(':~$ ' + $commend)) // 입력한 명령어 추가
       result.appendChild(document.createElement('br')) // 한칸 개행
 
       // 명령어 분기
@@ -80,26 +84,25 @@ export default {
         this.$emit('shutdown')
         return
       } else if ($commend === 'exit') {
-        this.$emit('close')
+        this.$emit('onClose')
         return
       } else {
-        result.appendChild(document.createTextNode(this.language[this.$store.state.language].notfound))
+        result.appendChild(document.createTextNode($commend + ': ' + this.language[this.$store.state.language].notfound))
         result.appendChild(document.createElement('br'))
       }
 
       this.terminal.insertBefore(result, this.terminal.lastChild) // 마지막 노드 앞에 결과 추가 (입력하는 영역이 항상 아래에 위치함)
       this.autoScroll()
-      document.getElementById('terminal-input').focus()
+      this.$refs.input.focus()
     },
     autoScroll () { // 자동 스크롤
-      var terminal = document.getElementById('terminal-background')
+      var terminal = document.getElementById('terminal')
       terminal.scrollTop = terminal.scrollHeight
     },
     helpCommend (el) {
-      el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode('Lgh\'s pc terminal'))
       el.appendChild(document.createElement('br'))
-      el.appendChild(document.createTextNode('Version 3.02.2018'))
+      el.appendChild(document.createTextNode('Version 1.23.2019'))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode('help - show all commends'))
@@ -108,42 +111,48 @@ export default {
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode('date - show current time'))
       el.appendChild(document.createElement('br'))
-      el.appendChild(document.createTextNode('lang [-en, -kr] - change language(eg. lang -kr)'))
+      el.appendChild(document.createTextNode('lang [-en] [-kr] - change language(eg. lang -kr)'))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode('shutdown - power off'))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode('exit - close terminal'))
-      el.appendChild(document.createElement('br'))
       el.appendChild(document.createElement('br'))
     }
   }
 }
 </script>
 
-<style>
-#terminal-background {
+<style lang="scss">
+
+#terminal {
   width: 100%;
   height: 100%;
+  padding: 5px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 0px 0px 5px 5px;
   overflow-y: auto;
+
+  .terminal__command-area {
+    padding: 0 5px;
+    color: #fff;
+
+    .terminal__command-area__command--user {
+      color: lawngreen;
+    }
+
+    .terminal__command-area__command {
+
+      input {
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-size: 1rem;
+        padding: 2px 5px;
+      }
+    }
+  }
 }
 
-#terminal {
-  padding: 0 5px;
-  color: #fff;
-}
-
-.terminal-user {
-  color: lawngreen;
-}
-
-.commend input {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  color: #fff;
-  font-size: 1rem;
-}
 </style>

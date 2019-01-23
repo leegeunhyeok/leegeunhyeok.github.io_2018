@@ -3,7 +3,7 @@
     <transition name="fade" mode="out-in">
       <router-view
         @onPower="changeRoute('login')"
-        @onLogin="changeRoute('main')"
+        @onLogin="changeRoute('desktop')"
         @onPoweroff="changeRoute('home')">
       </router-view>
     </transition>

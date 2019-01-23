@@ -1,19 +1,21 @@
 <template>
   <div id="project">
-    <div class="list-item" v-for="(item, index) in project" :key="index">
-      <div class="list-title">{{ item[$store.state.language].name }}</div>
-      <img :src="item.image" class="list-image">
-      <div class="list-lang">{{ item.lang }}</div>
-      <div class="list-info">
-        <b class="blue">{{ information }}</b>
-        <div class="list-info-area">{{ item[$store.state.language].info }}</div>
-        <div class="list-info-area">{{ item[$store.state.language].disc }}</div>
+    <div class="item" v-for="(item, index) in project" :key="index">
+      <div class="item__title">{{ item[$store.state.language].name }}</div>
+      <img class="item__image" :src="item.image">
+      <div class="item__used-language">{{ item.lang }}</div>
+      <div class="item__info">
+        <b class="item__info__text--blue">{{ information }}</b>
+        <div class="item__info__text">{{ item[$store.state.language].info }}</div>
+        <div class="item__info__text">{{ item[$store.state.language].disc }}</div>
       </div>
-      <div class="list-info">
-        <b class="blue">{{ date }}</b>
-        <div class="list-info-area">{{ item.date }}</div>
+      <div class="item__info">
+        <b class="item__info__text--blue">{{ date }}</b>
+        <div class="item__info__text">{{ item.date }}</div>
       </div>
-      <button @click="showPage(item.link)">{{ more }}</button>
+      <button class="item__more-button"
+        @click="showPage(item.link)"
+      >{{ more }}</button>
     </div>
   </div>
 </template>
