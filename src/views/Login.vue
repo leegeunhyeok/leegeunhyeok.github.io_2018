@@ -74,12 +74,12 @@ export default {
     width: 100%;
     text-align: center;
 
-    @media only screen and (min-width: 320px) {
-      margin-top: 10%;
+    @media only screen and (min-width: 320px), (min-width: 768px) {
+      margin-top: 25%;
     }
 
-    @media only screen and (min-width: 768px), (min-width: 1224px) {
-      margin-top: 20%;
+    @media only screen and (min-width: 1224px) {
+      margin-top: 10%;
     }
 
     .login__user-profile__image {

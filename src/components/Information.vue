@@ -12,7 +12,7 @@
         <div class="information__detail__text">
         {{ language[$store.state.language].devstart }}: <b>2018/02/20</b>
         </div>
-        {{ language[$store.state.language].lastbuild }}: <b>2019/01/23</b>
+        {{ language[$store.state.language].lastbuild }}: <b>{{ lastBuild }}</b>
         <div class="information__detail__text-source">
         {{ language[$store.state.language].source }}: <a href="https://github.com/leegeunhyeok/leegeunhyeok.github.com">Github</a>
         </div>
@@ -39,12 +39,29 @@ import Language from '@/language/InformationLanguage.js'
 export default {
   data () {
     return {
-      language: Language
+      language: Language,
+      lastBuild: ''
     }
+  },
+  created () {
+    const lastBuildDate = new Date($BUILD$)
+    const year = lastBuildDate.getFullYear()
+    const month = this.appendZero(lastBuildDate.getMonth() + 1)
+    const date = this.appendZero(lastBuildDate.getDate())
+    this.lastBuild = `${year}/${month}/${date}`
   },
   computed: {
     back () {
       return this.$store.state.language === 'en' ? 'Back' : '뒤로'
+    }
+  },
+  methods: {
+    appendZero (number) {
+      if (('' + number).length === 1) {
+        return '0' + number
+      } else {
+        return number
+      }
     }
   }
 }

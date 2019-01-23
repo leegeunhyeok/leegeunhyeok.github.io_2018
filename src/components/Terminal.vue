@@ -7,7 +7,7 @@
           type="text"
           ref="input"
           @keypress="onKeypress"
-          v-model="commend"
+          v-model="command"
         >
       </div>
     </div>
@@ -22,8 +22,18 @@ export default {
     return {
       language: Language,
       terminal: null,
-      commend: ''
+      command: '',
+      version: '0.0.0',
+      terminalVersion: '0.0.0'
     }
+  },
+  created () {
+    const buildDate = new Date($BUILD$)
+    const month = buildDate.getMonth() + 1
+    const date = buildDate.getDate()
+    const year = buildDate.getFullYear()
+    this.terminalVersion = `${month}.${('' + date).length === 1 ? '0' + date : date}.${year}`
+    this.version = $VERSION$
   },
   mounted () {
     this.terminal = document.getElementById('terminal')
@@ -31,13 +41,13 @@ export default {
   },
   methods: {
     onKeypress (e) {
-      if (e.charCode === 13 && this.commend.length) {
-        this.commendExecute()
+      if (e.charCode === 13 && this.command.length) {
+        this.commandExecute()
       }
     },
-    commendExecute () { // 커맨드 실행
-      const $commend = this.commend.toLowerCase() // 입력한 커맨드를 변수에 저장하고
-      this.commend = '' // 빈칸으로 변경
+    commandExecute () { // 커맨드 실행
+      const $command = this.command.toLowerCase() // 입력한 커맨드를 변수에 저장하고
+      this.command = '' // 빈칸으로 변경
 
       // 결과 엘리먼트
       var result = document.createElement('div')
@@ -48,18 +58,18 @@ export default {
       user.appendChild(document.createTextNode('leegeunhyeok@lgh-com'))
 
       result.appendChild(user) // 사용자 이름 영역 추가
-      result.appendChild(document.createTextNode(':~$ ' + $commend)) // 입력한 명령어 추가
+      result.appendChild(document.createTextNode(':~$ ' + $command)) // 입력한 명령어 추가
       result.appendChild(document.createElement('br')) // 한칸 개행
 
       // 명령어 분기
-      if ($commend === 'help') {
-        this.helpCommend(result)
-      } else if ($commend.indexOf('lang') !== -1) { // lang
-        if ($commend.indexOf('-en') !== -1) { // -en 옵션
+      if ($command === 'help') {
+        this.helpcommand(result)
+      } else if ($command.indexOf('lang') !== -1) { // lang
+        if ($command.indexOf('-en') !== -1) { // -en 옵션
           this.$store.commit('changeLanguage', 'en')
           result.appendChild(document.createTextNode(this.language['en'].langchange))
           result.appendChild(document.createElement('br'))
-        } else if ($commend.indexOf('-kr') !== -1) { // -kr 옵션
+        } else if ($command.indexOf('-kr') !== -1) { // -kr 옵션
           this.$store.commit('changeLanguage', 'kr')
           result.appendChild(document.createTextNode(this.language['kr'].langchange))
           result.appendChild(document.createElement('br'))
@@ -71,23 +81,23 @@ export default {
           result.appendChild(document.createElement('br'))
           result.appendChild(document.createTextNode('eg. lang -kr'))
         }
-      } else if ($commend === 'whoami') {
+      } else if ($command === 'whoami') {
         result.appendChild(document.createTextNode(this.language[this.$store.state.language].name))
         result.appendChild(document.createElement('br'))
         result.appendChild(document.createTextNode(this.language[this.$store.state.language].email))
         result.appendChild(document.createElement('br'))
         result.appendChild(document.createTextNode(this.language[this.$store.state.language].intro))
         result.appendChild(document.createElement('br'))
-      } else if ($commend === 'date') {
+      } else if ($command === 'date') {
         result.appendChild(document.createTextNode(new Date()))
-      } else if ($commend === 'shutdown') {
+      } else if ($command === 'shutdown') {
         this.$emit('shutdown')
         return
-      } else if ($commend === 'exit') {
+      } else if ($command === 'exit') {
         this.$emit('onClose')
         return
       } else {
-        result.appendChild(document.createTextNode($commend + ': ' + this.language[this.$store.state.language].notfound))
+        result.appendChild(document.createTextNode($command + ': ' + this.language[this.$store.state.language].notfound))
         result.appendChild(document.createElement('br'))
       }
 
@@ -99,13 +109,13 @@ export default {
       var terminal = document.getElementById('terminal')
       terminal.scrollTop = terminal.scrollHeight
     },
-    helpCommend (el) {
+    helpcommand (el) {
       el.appendChild(document.createTextNode('Lgh\'s pc terminal'))
       el.appendChild(document.createElement('br'))
-      el.appendChild(document.createTextNode('Version 1.23.2019'))
+      el.appendChild(document.createTextNode(`Terminal, version ${this.terminalVersion} (web ${this.version})`))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createElement('br'))
-      el.appendChild(document.createTextNode('help - show all commends'))
+      el.appendChild(document.createTextNode('help - show all commands'))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode('whoami - show information about leegeunhyeok'))
       el.appendChild(document.createElement('br'))
