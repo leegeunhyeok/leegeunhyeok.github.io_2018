@@ -36,6 +36,14 @@ export default {
       return this.$store.state.language === 'en' ? 'Korean' : '영어'
     }
   },
+  created () {
+    const path = this.$route.query.p
+    if (path && this.$route.resolve(path) !== '404') {
+      this.$route.push({ path })
+    } else {
+      this.$route.replace({ ...this.$route.currentRoute })
+    }
+  },
   methods: {
     changeLanguage () {
       this.$store.commit('changeLanguage', this.$store.state.language === 'en' ? 'kr' : 'en')
