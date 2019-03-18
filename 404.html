@@ -6,7 +6,8 @@
     <script type="text/javascript">
       var l = window.location;
       l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/'
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?p=' +
+        l.pathname.slice(1).split('/')[0]
       )
     </script>
   </head>
