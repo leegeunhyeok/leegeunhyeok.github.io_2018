@@ -38,10 +38,12 @@ export default {
   },
   created () {
     const path = this.$route.query.p
-    if (path && this.$route.resolve(path) !== '404') {
-      this.$route.push({ path })
-    } else {
-      this.$route.replace({ ...this.$route.currentRoute })
+    if (path) {
+      if (this.$route.resolve(path) !== '404') {
+        this.$route.push({ path })
+      } else {
+        this.$route.push({ path: '/' })
+      }
     }
   },
   methods: {
