@@ -27,6 +27,7 @@ export default {
 
 * {
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 html, body {
