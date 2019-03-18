@@ -24,6 +24,10 @@ export default new Router({
       path: '/desktop',
       name: 'desktop',
       component: Main
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })
