@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Intro from './views/Intro.vue'
 import Login from './views/Login.vue'
 import Main from './views/Main.vue'
+import Todo from './views/todo/Todo.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/desktop',
       name: 'desktop',
       component: Main
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: Todo
     },
     {
       path: '*',
