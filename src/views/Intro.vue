@@ -39,10 +39,10 @@ export default {
   created () {
     const path = this.$route.query.p
     if (path) {
-      if (this.$route.resolve(path) !== '404') {
-        this.$route.push({ path })
+      if (this.$router.resolve(path) !== '404') {
+        this.$router.push({ path })
       } else {
-        this.$route.push({ path: '/' })
+        this.$router.push({ path: '/' })
       }
     }
   },
