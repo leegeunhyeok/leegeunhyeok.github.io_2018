@@ -97,9 +97,9 @@ export default {
       if (n !== 5 && n !== 6) {
         this.showWindow(n) // 5, 6이 아니면 윈도우 띄우기
       } else if (n === 5) {
-        window.open('https://github.com/leegeunhyeok') // 깃허브 새창으로 열기
+        window.open('https://github.com/minhaHwang') // 깃허브 새창으로 열기
       } else {
-        window.open('mailto:lghlove0509@naver.com') // 메일 프로그램 연결
+        window.open('mailto:minhao0616@naver.com') // 메일 프로그램 연결
       }
     },
     showWindow (n) {

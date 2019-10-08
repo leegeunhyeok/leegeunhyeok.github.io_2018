@@ -1,5 +1,5 @@
-# leegeunhyeok.github.com
+# minhaHwnag.github.com
 
-[View page](http://leegeunhyeok.github.io)
+[View page](http://minhaHwnag.github.io)
 
 Github - Portfolio webpage 

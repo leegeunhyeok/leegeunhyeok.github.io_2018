@@ -14,12 +14,12 @@
         </div>
         {{ language[$store.state.language].lastbuild }}: <b>{{ lastBuild }}</b>
         <div class="information__detail__text-source">
-        {{ language[$store.state.language].source }}: <a href="https://github.com/leegeunhyeok/leegeunhyeok.github.com">Github</a>
+        {{ language[$store.state.language].source }}: <a href="https://github.com/minhaHwang/minhaHwang.github.com">Github</a>
         </div>
         <div class="information__link-area">
           <div>{{ language[$store.state.language].blog }}</div>
           <a class="information__link-area__link"
-            href="http://blog.naver.com/lghlove0509"
+            href="http://blog.naver.com/minha0616"
           >{{ language[$store.state.language].naver }}</a> /
           <a class="information__link-area__link"
             href="http://codevkr.tistory.com/"

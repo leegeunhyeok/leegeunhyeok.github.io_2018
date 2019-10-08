@@ -12,7 +12,7 @@
   console.log('%c | |   | | | |       | |      | |     | |     | |', 'font-weight: bold;color: dodgerblue')
   console.log('%c | |   | | | |_____  | |____  | |____  \\ \\___/ /', 'font-weight: bold;color: navy')
   console.log('%c |_|   |_| |_______| |______| |______|  \\_____/', 'font-weight: bold;color: purple')
-  console.log('%c leegeunhyeok@pc:~$ echo "WELCOME TO Geunhyeok LEE\'s WEB PAGE!" ', 'background-color:#000;color:#fff;border-radius:3px;')
+  console.log('%c HwangMinha@pc:~$ echo "WELCOME TO Minha Hwang \'s WEB PAGE!" ', 'background-color:#000;color:#fff;border-radius:3px;')
   console.log('%c PWA %c x %c Vue.js %c Base web page','background:#35495e;padding:1px;border-radius:3px;color:#fff', 'background:transparent', 'background:#41b883;padding:1px;border-radius:3px;color:#fff', 'background:transparent')
 
   /**

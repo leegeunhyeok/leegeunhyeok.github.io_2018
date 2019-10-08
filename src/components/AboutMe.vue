@@ -1,6 +1,6 @@
 <template>
   <div id="about">
-    <img class="about__profile-image" src="@/assets/lgh.png">
+    <img class="about__profile-image" src="@/assets/hmh.png">
     <div class="about__profile-name">{{ language[$store.state.language].name }}</div>
     <div class="about__profile-birth">{{ language[$store.state.language].birth }} 2000.05.09</div>
     <div class="about__profile-motto">{{ language[$store.state.language].motto }}: {{ language[$store.state.language]['motto-text'] }}</div>

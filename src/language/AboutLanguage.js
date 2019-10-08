@@ -1,22 +1,24 @@
 export default {
   'en': {
-    'name': 'Leegeunhyeok',
+    'name': 'HwangMinha',
     'birth': 'Birthday',
     'email': 'Email',
     'motto': 'Motto',
-    'motto-text': 'Do not give up!',
+    'motto-text': 'Be Happy!',
     'education': 'Education',
-    'high': 'GwangMyeong Menagement Accounting High School',
-    'middle': 'Haan Middle School'
+    'Academy' : 'KH Academy in Gang-nam',
+    'high': 'Bucheon High School',
+    'middle': 'Bu-il Middle School'
   },
   'kr': {
-    'name': '이근혁',
+    'name': '황민하',
     'birth': '생년월일',
     'email': '이메일',
     'motto': '좌우명',
-    'motto-text': '포기하지말자!',
+    'motto-text': '행복하게!',
     'education': '학력',
-    'high': '광명경영회계고등학교',
-    'middle': '하안중학교'
+    'Academy' : 'KH정보교육원 강남지원',
+    'high': '부천고등학교',
+    'middle': '부일중학교'
   }
 }

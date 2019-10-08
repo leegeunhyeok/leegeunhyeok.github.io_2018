@@ -2,7 +2,7 @@
   <div id="terminal">
     <div class="terminal__command-area">
       <div class="terminal__command-area__command">
-        <b class="terminal__command-area__command--user">leegeunhyeok@lgh-com</b>:~$
+        <b class="terminal__command-area__command--user">minha0616@hmh-com</b>:~$
         <input class="terminal__command-area__command__input"
           type="text"
           ref="input"
@@ -55,7 +55,7 @@ export default {
 
       var user = document.createElement('b')
       user.classList.add('terminal__command-area__command--user')
-      user.appendChild(document.createTextNode('leegeunhyeok@lgh-com'))
+      user.appendChild(document.createTextNode('HwangMinha@hmh-com'))
 
       result.appendChild(user) // 사용자 이름 영역 추가
       result.appendChild(document.createTextNode(':~$ ' + $command)) // 입력한 명령어 추가
@@ -110,14 +110,14 @@ export default {
       terminal.scrollTop = terminal.scrollHeight
     },
     helpcommand (el) {
-      el.appendChild(document.createTextNode('Lgh\'s pc terminal'))
+      el.appendChild(document.createTextNode('Hmh\'s pc terminal'))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode(`Terminal, version ${this.terminalVersion} (web ${this.version})`))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode('help - show all commands'))
       el.appendChild(document.createElement('br'))
-      el.appendChild(document.createTextNode('whoami - show information about leegeunhyeok'))
+      el.appendChild(document.createTextNode('whoami - show information about HwangMinha'))
       el.appendChild(document.createElement('br'))
       el.appendChild(document.createTextNode('date - show current time'))
       el.appendChild(document.createElement('br'))

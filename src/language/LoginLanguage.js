@@ -1,11 +1,11 @@
 export default {
   'en': {
-    'user': 'Leegeunhyeok',
+    'user': 'Hwang Minha',
     'login': 'Login',
     'hello': 'Hello!'
   },
   'kr': {
-    'user': '이근혁',
+    'user': '황민하',
     'login': '로그인',
     'hello': '환영합니다!'
   }
