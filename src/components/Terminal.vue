@@ -2,7 +2,7 @@
   <div id="terminal">
     <div class="terminal__command-area">
       <div class="terminal__command-area__command">
-        <b class="terminal__command-area__command--user">minha0616@hmh-com</b>:~$
+        <b class="terminal__command-area__command--user">minhaHwang@hmh-com</b>:~$
         <input class="terminal__command-area__command__input"
           type="text"
           ref="input"
@@ -55,7 +55,7 @@ export default {
 
       var user = document.createElement('b')
       user.classList.add('terminal__command-area__command--user')
-      user.appendChild(document.createTextNode('HwangMinha@hmh-com'))
+      user.appendChild(document.createTextNode('minhaHwang@hmh-com'))
 
       result.appendChild(user) // 사용자 이름 영역 추가
       result.appendChild(document.createTextNode(':~$ ' + $command)) // 입력한 명령어 추가
