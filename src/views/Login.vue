@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <div class="login__user-profile">
-      <img src="../assets/hmh.png" class="login__user-profile__image">
+      <img src="../assets/hmh.jpg" class="login__user-profile__image">
       <p class="login__user-profile__name">{{ language[$store.state.language].user }}</p>
     </div>
     <div class="login__button-area">

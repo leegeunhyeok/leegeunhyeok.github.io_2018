@@ -30,7 +30,7 @@ export default [
     },
     'image': directory + 'test.png',
     'FrameWork': 'Spring',
-    'date': '2018',
+    'date': '2019',
     'link': 'https://github.com/minhaHwnag/FYC'
   }
 ]
