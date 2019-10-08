@@ -4,7 +4,7 @@
 *  kr-name: 한글이름
 *  image: 이미지 경로
 */
-const directory = '/img/shortcut/'
+const directory = '/dist/img/shortcut/'
 
 export default [
   {

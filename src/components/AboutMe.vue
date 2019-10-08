@@ -2,7 +2,7 @@
   <div id="about">
     <img class="about__profile-image" src="@/assets/hmh.jpg">
     <div class="about__profile-name">{{ language[$store.state.language].name }}</div>
-    <div class="about__profile-birth">{{ language[$store.state.language].birth }} 2000.05.09</div>
+    <div class="about__profile-birth">{{ language[$store.state.language].birth }} 1993.06.16</div>
     <div class="about__profile-motto">{{ language[$store.state.language].motto }}: {{ language[$store.state.language]['motto-text'] }}</div>
     <div class="about__profile-education">
       <div id="about__profile-education__title">{{ language[$store.state.language].education }}</div>
