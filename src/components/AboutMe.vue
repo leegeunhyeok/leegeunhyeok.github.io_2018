@@ -6,6 +6,7 @@
     <div class="about__profile-motto">{{ language[$store.state.language].motto }}: {{ language[$store.state.language]['motto-text'] }}</div>
     <div class="about__profile-education">
       <div id="about__profile-education__title">{{ language[$store.state.language].education }}</div>
+      <div class="about__profile-education__text">{{ language[$store.state.language].Academy }}</div>
       <div class="about__profile-education__text">{{ language[$store.state.language].high }}</div>
       <div class="about__profile-education__text">{{ language[$store.state.language].middle }}</div>
     </div>
