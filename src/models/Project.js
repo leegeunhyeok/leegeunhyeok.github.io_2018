@@ -14,12 +14,12 @@ export default [
     },
     'image': directory + 'coc2.png',
     'tool': 'Eclipse',
-    'date': '2019',
+    'date': '2019-07-24 ~ 2019-08-06',
     'link': 'https://github.com/pmoong/coct'
   },
   {
     'en': {
-      'name': 'Drwaing Your Cloud',
+      'name': 'Drawing Your Cloud',
       'info': 'Reward-type Crowdfunding',
       'disc': 'Reward-type crowdfunding that focuses on user convenience'
     },
@@ -30,7 +30,7 @@ export default [
     },
     'image': directory + 'test.png',
     'FrameWork': 'Spring',
-    'date': '2019',
+    'date': '2019-09-02 ~ 2019-09-30',
     'link': 'https://github.com/minhaHwnag/FYC'
   }
 ]
