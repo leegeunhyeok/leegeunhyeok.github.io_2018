@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="ColorMode DEMO">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ColorMode DEMO</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <style>
+    
+      * {
+        font-family: 'Comfortaa', cursive;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;    
+      }
+
+      html, body {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .wrap {
+        width: 100%;
+        height: 100%;
+      }
+
+      .panel {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        padding: 40px 80px;
+        border-radius: 4px;
+        -webkit-transform: translate(-50%, -50%);
+           -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+             -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+      }
+
+      .title {
+        margin-bottom: 40px;
+      }
+
+      .button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrap" colormode="bg:bgPrimary">
+      <div class="panel" colormode="bg:bgSecondary">
+        <h2 class="title" colormode="fg:labelPrimary">ColorMode</h2>
+        <a id="dark" class="button" colormode="secondaryBtn">Dark</a>
+        <a id="default" class="button" colormode="primaryBtn">Default</a>
+      </div>
+    </div>
+    <script src="../dist/color-mode.min.js"></script>
+    <script>
+
+      // Bind button event
+      window.onload = function () {
+        document.getElementById('dark').addEventListener('click', function () {
+          colorMode.set('dark')
+        })
+
+        document.getElementById('default').addEventListener('click', function () {
+          colorMode.set('default')
+        })
+      }
+      
+      var option = {
+        initialTheme: 'dark', // Init with dark
+        fallbackTheme: 'default',
+        animation: 200, // Transform effect duration(ms)
+        tags: {
+          fg: 'color',
+          bg: 'background-color',
+          primaryBtn: {
+            backgroundColor: '@tint',
+            color: '@onTint'
+          },
+          secondaryBtn: {
+            backgroundColor: '@bgTertiary',
+            color: '@tint'
+          }
+        },
+        themes: {
+          default: { // required!
+            tint: '#007aff',
+            onTint: '#ffffff',
+            bgPrimary: '#e5e9f2',
+            bgSecondary: '#ffffff',
+            bgTertiary: '#eef3fc',
+            labelPrimary: '#1d212b',
+            labelSecondary: '#45566f'
+          },
+          dark: {
+            tint: '#6db3ff',
+            onTint: '#ffffff',
+            bgPrimary: '#262b3a',
+            bgSecondary: '#484d5d',
+            bgTertiary: '#353a4b',
+            labelPrimary: '#ffffff',
+            labelSecondary: '#cfd3e0'
+          },
+          // You can add more custom themes
+        }
+      }
+
+      // Create ColorMode instance
+      var colorMode = new ColorMode(option)
+    
+    </script>
+  </body>
+</html>
