@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="ColorMode DOCS">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ColorMode Docs</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <style>
+
+      * {
+        font-family: 'Comfortaa', cursive;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;    
+      }
+    
+      html, body {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .wrap {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+      }
+
+      .header {
+        width: 100%;
+        padding: 20px 0;
+      }
+
+      .title {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        max-width: 800px;
+      }
+
+      .input-wrap {
+        margin: auto;
+        padding: 0 20px;
+        max-width: 800px;
+      }
+
+      .input-wrap .text-input {
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+        width: 100%;
+      }
+
+      .content {
+        padding-top: 20px;
+      }
+
+      .item {
+        margin: auto;
+        width: 100%;
+        max-width: 800px;
+        padding: 20px;
+        padding-top: 0;
+      }
+
+      .panel {
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      .panel .primary-title {
+        margin: 0;
+      }
+
+      .panel .primary-title a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .panel .secondary-title {
+        margin-top: 5px;
+        margin-bottom: 15px;
+        font-weight: normal;
+      }
+
+      .panel .secondary-title:last-child {
+        margin-bottom: 0;
+      }
+
+      select {
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+
+      .button-wrap {
+        margin-top: 20px;
+      }
+
+      .button-wrap .button {
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+
+      .code, table {
+        padding: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .code div {
+        width: 100%;
+        float: left;
+      }
+
+      .code span {
+        font-family: 'Consolas';
+        float: left;
+      }
+
+      ul {
+        line-height: 150%;
+      }
+
+      .tag {
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+
+      .table {
+        overflow-x: auto;
+      }
+
+      .table table {
+        border-collapse: collapse;
+      }
+
+      .table .center {
+        text-align: center;
+      }
+
+      .table .left {
+        text-align: left;
+      }
+
+      .table .right {
+        text-align: right;
+      }
+
+      table td, table th {
+        padding: 8px;
+      }
+      table tr:first-child th {
+        border-top: 0 !important;
+      }
+      table tr:last-child td {
+        border-bottom: 0 !important;
+      }
+      table tr td:first-child,
+      table tr th:first-child {
+        border-left: 0 !important;
+      }
+      table tr td:last-child,
+      table tr th:last-child {
+        border-right: 0 !important;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrap" colormode="bg:bgPrimary">
+      <div class="header" colormode="bg:bgSecondary">
+        <h1 class="title" colormode="fg:tint">ColorMode</h1>
+        <div class="input-wrap">
+          <input class="text-input" colormode="inputField">
+        </div>
+      </div>
+      <div class="content">
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">ColorMode</h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">By Geunhyeok LEE</h5>
+            <p colormode="fg:labelTertiary">Add color theme systme to your page with <span class="tag" colormode="tag">ColorMode!</span></p>
+            <div class="button-wrap">
+              <a href="https://www.npmjs.com/package/color-mode" class="button" colormode="secondaryBtn">NPM</a>
+              <a href="https://github.com/leegeunhyeok/color-mode" class="button" colormode="primaryBtn">Github</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">Change theme</h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">ColorMode DEMO</h5>
+            <div>
+              <select id="theme_list" colormode="select">
+                <!-- Theme options -->
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">Install</h2>
+            <h5 class="secondary-title"><!-- Empty --></h5>
+            <div class="code" colormode="code">
+              <div>
+                <span colormode="fg:codeSymbol">$ npm install color-mode</span>
+              </div>
+            </div>
+            <h5
+              class="secondary-title"
+              style="margin-top: 15px; margin-bottom: 0;"
+              colormode="fg:labelTertiary"
+            >OR Add to &lt;script&gt;</h5>
+            <div class="button-wrap">
+              <a href="https://github.com/leegeunhyeok/color-mode/releases" class="button" colormode="primaryBtn">Download</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">Getting started</h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">Import and create instance</h5>
+            <div class="code" colormode="code">
+              <div>
+                <span colormode="fg:codeComment">// NPM</span>
+              </div>
+              <div>
+                <span colormode="fg:codeModule">import</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeVariable">colorMode</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeModule">from</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'color-mode'</span>
+              </div>
+              <div><br></div>
+              <div>
+                <span colormode="fg:codeComment">// Script tag</span>
+              </div>
+              <div>
+                <span colormode="fg:codeTag">&lt;</span>
+                <span colormode="fg:codeKeyword">script</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeVariable">src</span>
+                <span colormode="fg:codeSymbol">=</span>
+                <span colormode="fg:codeString">"color-mode.min.js"</span>
+                <span colormode="fg:codeTag">&gt;</span>
+              </div>
+            </div>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">Import ColorMode</h5>
+            <div class="code" colormode="code">
+              <div>
+                <span colormode="fg:codeKeyword">var</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeVariable">colorMode</span>
+                <span colormode="fg:codeSymbol">&nbsp;=&nbsp;</span>
+                <span colormode="fg:codeKeyword">new</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeClass">ColorMode</span>
+                <span colormode="fg:codeSymbol">(</span>
+                <span colormode="fg:codeVariable">option</span>
+                <span colormode="fg:codeSymbol">)</span>
+              </div>
+              <div>
+                <span colormode="fg:codeVariable">colorMode</span>
+                <span colormode="fg:codeSymbol">.</span>
+                <span colormode="fg:codeFunction">set</span>
+                <span colormode="fg:codeSymbol">(</span>
+                <span colormode="fg:codeVariable">themeName</span>
+                <span colormode="fg:codeSymbol">)</span>
+              </div>
+            </div>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">Create instance</h5>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">ColorMode</h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">class</h5>
+            <div class="table">
+              <table colormode="table">
+                <thead>
+                  <tr>
+                    <th class="left" colormode="tableItem">Parameter</th>
+                    <th class="center" colormode="tableItem">Type</th>
+                    <th class="center" colormode="tableItem">Required</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="left" colormode="tableItem">option</td>
+                    <td class="center" colormode="tableItem">
+                      <a href="#option" colormode="fg:tint">object</a>
+                    </td>
+                    <td class="center" colormode="tableItem">O</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">
+              <a href="#option">Option</a>
+            </h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">ColorMode option</h5>
+            <div class="table">
+              <table class="table" colormode="table">
+                <thead>
+                  <tr>
+                    <th class="left" colormode="tableItem">Property</th>
+                    <th class="center" colormode="tableItem">Type</th>
+                    <th class="center" colormode="tableItem">Required</th>
+                    <th class="left" colormode="tableItem">Default</th>
+                    <th class="left" colormode="tableItem">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="left" colormode="tableItem">initialTheme</td>
+                    <td class="center" colormode="tableItem">string</td>
+                    <td class="center" colormode="tableItem">X</td>
+                    <td class="left" colormode="tableItem"><span class="tag" colormode="tag">'default'</span></td>
+                    <td class="left" colormode="tableItem">Initial theme name</td>
+                  </tr>
+                  <tr>
+                    <td class="left" colormode="tableItem">fallbackTheme</td>
+                    <td class="center" colormode="tableItem">string</td>
+                    <td class="center" colormode="tableItem">X</td>
+                    <td class="left" colormode="tableItem"><span class="tag" colormode="tag">'default'</span></td>
+                    <td class="left" colormode="tableItem">Fallback theme name</td>
+                  </tr>
+                  <tr>
+                    <td class="left" colormode="tableItem">animation</td>
+                    <td class="center" colormode="tableItem">number</td>
+                    <td class="center" colormode="tableItem">X</td>
+                    <td class="left" colormode="tableItem"><span class="tag" colormode="tag">0</span></td>
+                    <td class="left" colormode="tableItem">Theme transform effect duration</td>
+                  </tr>
+                  <tr>
+                    <td class="left" colormode="tableItem">tags</td>
+                    <td class="center" colormode="tableItem">
+                      <a href="#optiontags" colormode="fg:tint">object</a>
+                    </td>
+                    <td class="center" colormode="tableItem">O</td>
+                    <td class="left" colormode="tableItem">none</td>
+                    <td class="left" colormode="tableItem">Theme tags</td>
+                  </tr>
+                  <tr>
+                    <td class="left" colormode="tableItem">themes</td>
+                    <td class="center" colormode="tableItem">
+                      <a href="#optionthemes" colormode="fg:tint">object</a>
+                    </td>
+                    <td class="center" colormode="tableItem">O</td>
+                    <td class="left" colormode="tableItem">none</td>
+                    <td class="left" colormode="tableItem">Themes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">
+              <a href="#tags">Option.tags</a>
+            </h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">option value</h5>
+            <div class="table">
+              <table colormode="table">
+                <thead>
+                  <tr>
+                    <th class="left" colormode="tableItem">Key</th>
+                    <th class="center" colormode="tableItem">Value</th>
+                    <th class="center" colormode="tableItem">Type</th>
+                    <th class="center" colormode="tableItem">Required</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="left" colormode="tableItem"><code>custom tag name</code></td>
+                    <td class="center" colormode="tableItem">CSS Property or Style object</td>
+                    <td class="center" colormode="tableItem">string | object</td>
+                    <td class="center" colormode="tableItem">O</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <ul colormode="fg:labelTertiary">
+                <li>(string) CSS Property: 
+                  <span class="tag" colormode="tag">color</span>,
+                  <span class="tag" colormode="tag">background-color</span>,
+                  <span class="tag" colormode="tag">box-shadow</span>,
+                  <span class="tag" colormode="tag">...</span>
+                </li>
+                <li>(object) Style object:
+                  <span class="tag" colormode="tag">{ color: 'dodgerblue', backgroundColor: '#e0e0e0', ... }</span>
+                  <ul>
+                    <li>Property name must be CamelCase
+                      <span class="tag" colormode="tag">(background-color > backgroundColor)</span>
+                    </li>
+                    <li>You can using theme's color with @
+                      <span class="tag" colormode="tag">(ex: @NAME find 'NAME' color from theme)</span>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="code" colormode="code">
+              <div>
+                <span colormode="fg:codeComment">/**</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* tags: {</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* &nbsp;&nbsp;&nbsp;&nbsp;TAG_NAME: 'CSS Property',</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* &nbsp;&nbsp;&nbsp;&nbsp;TAG_NAME: {</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boxShadow: '0 0 0 5px @primary' // Using theme's 'primary' named color</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* &nbsp;&nbsp;&nbsp;&nbsp;}</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* }</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">*/</span>
+              </div>
+              <div>
+                <br>
+              </div>
+              <div>
+                <span colormode="fg:codeKeyword">const</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeVariable">option</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">=</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">{</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeComment">// ...</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">tags</span>
+                <span colormode="fg:codeSymbol">: {</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">myTag</span>
+                <span colormode="fg:codeSymbol">: ...,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">fg</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'color'</span>
+                <span colormode="fg:codeSymbol">,</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">// string (CSS Property)</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">detail</span>
+                <span colormode="fg:codeSymbol">: {</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">// object (Style object)</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">backgroundColor</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#2f2f2f'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">color</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'@primary'</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">// Find 'primary' color from 'option.themes.*'</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+              <div>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">
+              <a href="#themes">Option.themes</a>
+            </h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">option value</h5>
+            <div class="table">
+              <table colormode="table">
+                <thead>
+                  <tr>
+                    <th class="left" colormode="tableItem">Key</th>
+                    <th class="center" colormode="tableItem">Value</th>
+                    <th class="center" colormode="tableItem">Type</th>
+                    <th class="center" colormode="tableItem">Required</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="left" colormode="tableItem">default</td>
+                    <td class="center" colormode="tableItem">CSS Style (color code, etc..)</td>
+                    <td class="center" colormode="tableItem">string</td>
+                    <td class="center" colormode="tableItem">O</td>
+                  </tr>
+                  <tr>
+                    <td class="left" colormode="tableItem"><code>custom theme name</code></td>
+                    <td class="center" colormode="tableItem">CSS Style (color code, etc..)</td>
+                    <td class="center" colormode="tableItem">string</td>
+                    <td class="center" colormode="tableItem">X</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <ul colormode="fg:labelTertiary">
+                <li><span class="tag" colormode="tag">default</span> theme required</li>
+                <li>Define <span class="tag" colormode="tag">custom theme name</span> if you want to add theme
+                  <ul>
+                    <li>Each theme has style name(s)</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="code" colormode="code">
+              <div>
+                <span colormode="fg:codeComment">/**</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* themes: {</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* &nbsp;&nbsp;&nbsp;&nbsp;THEME_NAME: {</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STYLE_NAME: 'VALUE'</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* &nbsp;&nbsp;&nbsp;&nbsp;}</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">* }</span>
+              </div>
+              <div>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">*/</span>
+              </div>
+              <div>
+                <br>
+              </div>
+              <div>
+                <span colormode="fg:codeKeyword">const</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeVariable">option</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">=</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">{</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeComment">// ...</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">themes</span>
+                <span colormode="fg:codeSymbol">: {</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">default</span>
+                <span colormode="fg:codeSymbol">: {</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">// required!</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">tint</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#007aff'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">tint10</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#d8e7f9'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">onTint</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#ffffff'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">bgPrimary</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#e5e9f2'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">bgSecondary</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#ffffff'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">bgTertiary</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#eef3fc'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">panelBorder</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'1px solid #007aff'</span>
+                <span colormode="fg:codeSymbol"></span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeSymbol">},</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">dark</span>
+                <span colormode="fg:codeSymbol">: {</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">tint</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#6db3ff'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">tint10</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#e4ecf9'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">onTint</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#ffffff'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">bgPrimary</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#262b3a'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">bgSecondary</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#484d5d'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">bgTertiary</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'#353a4b'</span>
+                <span colormode="fg:codeSymbol">,</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">panelBorder</span>
+                <span colormode="fg:codeSymbol">:</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'1px solid #6db3ff'</span>
+                <span colormode="fg:codeSymbol"></span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+              <div>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">
+              <a href="#currenttheme">ColorMode.currentTheme</a>
+            </h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">property</h5>
+            <div class="table">
+              <table colormode="table">
+                <thead>
+                  <tr>
+                    <th class="center" colormode="tableItem">Type</th>
+                    <th class="left" colormode="tableItem">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="center" colormode="tableItem">string</td>
+                    <td class="left" colormode="tableItem">Current theme name</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div class="code" colormode="code">
+              <div>
+                <span colormode="fg:codeKeyword">if</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">(</span>
+                <span colormode="fg:codeVariable">colorMode</span>
+                <span colormode="fg:codeSymbol">.</span>
+                <span colormode="fg:codeVariable">currentTheme</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">===</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeString">'default'</span>
+                <span colormode="fg:codeSymbol">) {</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeComment">// If current theme is default..</span>
+              </div>
+              <div>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">
+              <a href="#getthemelist">ColorMode.getThemeList</a>
+            </h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">method</h5>
+            <p colormode="fg:labelTertiary">Return all of theme names list</p>
+            <div class="code" colormode="code">
+              <div>
+                <span colormode="fg:codeKeyword">const</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeVariable">colorMode</span>
+                <span colormode="fg:codeSymbol">&nbsp;=&nbsp;</span>
+                <span colormode="fg:codeKeyword">new</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeClass">ColorMode</span>
+                <span colormode="fg:codeSymbol">({</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">themes</span>
+                <span colormode="fg:codeSymbol">: {</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">default</span>
+                <span colormode="fg:codeSymbol">: {</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">/*...*/</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">},</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">dark</span>
+                <span colormode="fg:codeSymbol">: {</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">/*...*/</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">},</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeVariable">rainbow</span>
+                <span colormode="fg:codeSymbol">: {</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">/*...*/</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+              <div>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span colormode="fg:codeSymbol">}</span>
+              </div>
+              <div>
+                <span colormode="fg:codeSymbol">})</span>
+              </div>
+              <div>
+                <br>
+              </div>
+              <div>
+                <span colormode="fg:codeVariable">colorMode</span>
+                <span colormode="fg:codeSymbol">.</span>
+                <span colormode="fg:codeFunction">getThemeList</span>
+                <span colormode="fg:codeSymbol">()</span>
+                <span>&nbsp;</span>
+                <span colormode="fg:codeComment">// ['default', 'dark', 'rainbow']</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">
+              <a href="#set">ColorMode.set</a>
+            </h2>
+            <h5 class="secondary-title" colormode="fg:labelTertiary">method</h5>
+            <p colormode="fg:labelTertiary">Change theme to target theme</p>
+            <div class="code" colormode="code">
+              <div>
+                <span colormode="fg:codeComment">// Set to 'dark' theme</span>
+              </div>
+              <div>
+                <span colormode="fg:codeVariable">colorMode</span>
+                <span colormode="fg:codeSymbol">.</span>
+                <span colormode="fg:codeFunction">set</span>
+                <span colormode="fg:codeSymbol">(</span>
+                <span colormode="fg:codeString">'dark'</span>
+                <span colormode="fg:codeSymbol">)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="panel" colormode="bg:bgSecondary">
+            <h2 class="primary-title" colormode="fg:labelPrimary">
+              <a href="#license">License</a>
+            </h2>
+            <div colormode="fg:labelTertiary">MIT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./color-mode.min.js"></script>
+    <script>
+
+      window.onload = function () {
+        var select = document.getElementById('theme_list')
+        var list = colorMode.getThemeList()
+
+        for (var i = 0; i < list.length; i++) {
+          var option = document.createElement('option')
+          var name = list[i].charAt(0).toUpperCase() + list[i].slice(1)
+          option.appendChild(document.createTextNode(name))
+          option.selected = list[i].toLowerCase() === colorMode.currentTheme
+          select.appendChild(option)
+        }
+
+        select.addEventListener('change', function () {
+          colorMode.set(this.value.toLowerCase())
+        })
+      }
+
+      var option = {
+        initialTheme: 'dark',
+        fallbackTheme: 'default',
+        animation: 200,
+        tags: {
+          fg: 'color',
+          bg: 'background-color',
+          inputField: {
+            backgroundColor: '@bgTertiary',
+            color: '@labelPrimary'
+          },
+          select: {
+            backgroundColor: '@bgTertiary',
+            color: '@labelPrimary',
+            borderColor: '@bgPrimary'
+          },
+          primaryBtn: {
+            backgroundColor: '@tint',
+            color: '@onTint'
+          },
+          secondaryBtn: {
+            backgroundColor: '@bgTertiary',
+            color: '@tint'
+          },
+          code: {
+            backgroundColor: '@codeBg',
+            border: '1px solid @bgPrimary'
+          },
+          tag: {
+            backgroundColor: '@bgTertiary',
+            color: '@tint'
+          },
+          table: {
+            backgroundColor: '@bgTertiary',
+            color: '@labelPrimary'
+          },
+          tableItem: {
+            border: '1px solid @labelTertiary'
+          }
+        },
+        themes: {
+          default: { // required!
+            tint: '#007aff',
+            tint10: '#d8e7f9',
+            onTint: '#ffffff',
+            bgPrimary: '#e5e9f2',
+            bgSecondary: '#ffffff',
+            bgTertiary: '#eef3fc',
+            labelPrimary: '#1d212b',
+            labelSecondary: '#45566f',
+            labelTertiary: '#6a738f',
+            codeBg: '#ffffff',
+            codeSymbol: '#000000',
+            codeTag: '#000000',
+            codeKeyword: '#0000ff',
+            codeVariable: '#001080',
+            codeString: '#a31515',
+            codeClass: '#30a1c2',
+            codeFunction: '#795e26',
+            codeModule: '#af00db',
+            codeComment: '#6a9955'
+          },
+          dark: {
+            tint: '#6db3ff',
+            tint10: '#e4ecf9',
+            onTint: '#ffffff',
+            bgPrimary: '#262b3a',
+            bgSecondary: '#484d5d',
+            bgTertiary: '#353a4b',
+            labelPrimary: '#ffffff',
+            labelSecondary: '#cfd3e0',
+            labelTertiary: '#9da7bc',
+            codeBg: '#1e1e1e',
+            codeSymbol: '#d4d4d4',
+            codeTag: '#808080',
+            codeKeyword: '#569cd6',
+            codeVariable: '#9cdcfe',
+            codeString: '#c49178',
+            codeClass: '#4ec9b0',
+            codeFunction: '#dcdcaa',
+            codeModule: '#c586c0',
+            codeComment: '#008000'
+          },
+          contrast: {
+            tint: '#ffffff',
+            tint10: '#555555',
+            onTint: '#000000',
+            bgPrimary: '#ffffff',
+            bgSecondary: '#000000',
+            bgTertiary: '#333333',
+            tintText: '#333333',
+            labelPrimary: '#ffffff',
+            labelSecondary: '#cfd3e0',
+            labelTertiary: '#9da7bc',
+            codeBg: 'white',
+            codeSymbol: 'black',
+            codeTag: 'black',
+            codeKeyword: 'black',
+            codeVariable: 'black',
+            codeString: 'black',
+            codeClass: 'black',
+            codeFunction: 'black',
+            codeModule: 'black',
+            codeComment: 'black'
+          }
+          // You can add more custom themes
+        }
+      }
+
+      var colorMode = new ColorMode(option)
+
+      function change () {
+        if (colorMode.currentTheme === 'default') {
+          colorMode.set('dark')
+        } else {
+          colorMode.set('default')
+        }
+      }
+
+      var buttons = document.getElementsByClassName('change-theme')
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', change)
+      }
+
+    </script>
+  </body>
+</html>
